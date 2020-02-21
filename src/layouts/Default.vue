@@ -12,4 +12,8 @@ query {
 }
 </static-query>
 
-<style></style>
+<style>
+body {
+  background-color: #fffff7;
+}
+</style>
