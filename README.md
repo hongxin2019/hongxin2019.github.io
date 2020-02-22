@@ -7,14 +7,8 @@ git clone -b source git@github.com:hongxin2019/hongxin2019.github.io.git
 yarn
 ```
 
-## Deploy
+## Deploy && Update Source
 
 ```
 npm run deploy
-```
-
-## Update Source
-
-```
-npm run update
 ```
