@@ -9,10 +9,9 @@
       <div class="hidden sm:hidden md:hidden lg:block  xl:hidden">lg</div>
       <div class="hidden sm:hidden md:hidden lg:hidden xl:block">xl</div>
     </div> -->
-    <div class="container max-w-3xl px-5 font-normal">
+    <div class="container max-w-3xl font-normal">
       <div
-        class="bio flex flex-wrap
-        mt-5 sm:mt-10 md:mt-10 lg:mt-10 xl:mt-10
+        class="bio divider flex flex-wrap px-5 py-10
         sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
       >
         <g-image
@@ -38,9 +37,8 @@
           <p class="mt-8 text-2xl font-bold">洪鑫 · Xin Hong</p>
         </div>
       </div>
-      <hr class="mt-10" />
 
-      <div class="publications mt-5">
+      <div class="publications divider px-5 py-10">
         <p class="text-2xl font-bold">Publications</p>
 
         <div class="mt-3">
@@ -57,12 +55,16 @@
             >), 2019.
           </p>
           <div class="flex flex-row">
-            <a class="mr-3" href="/pdf/mm-2019-dfnet.pdf">
-              PDF
-            </a>
-            <a class="mr-3" href="https://github.com/hughplay/DFNet">
-              Code
-            </a>
+            <p class="mr-3">
+              <a class="" href="/pdf/mm-2019-dfnet.pdf">
+                PDF
+              </a>
+            </p>
+            <p class="mr-3">
+              <a class="" href="https://github.com/hughplay/DFNet">
+                Code
+              </a>
+            </p>
           </div>
         </div>
 
@@ -81,14 +83,15 @@
             Retrieval (<span class="font-bold">SIGIR</span>), 2018.
           </p>
           <div class="flex flex-row">
-            <a class="mr-3" href="/pdf/sigir-2018-afm.pdf">
-              PDF
-            </a>
+            <p class="mr-3">
+              <a class="" href="/pdf/sigir-2018-afm.pdf">
+                PDF
+              </a>
+            </p>
           </div>
         </div>
       </div>
 
-      <hr class="mt-10" />
       <p class="mb-20"></p>
     </div>
   </Layout>
@@ -103,13 +106,4 @@ export default {
 </script>
 
 <style>
-a {
-  transition-property: color;
-  transition-duration: 200ms;
-  font-weight: 600;
-  color: #ed8936;
-}
-a:hover {
-  color: #7b341e;
-}
 </style>
