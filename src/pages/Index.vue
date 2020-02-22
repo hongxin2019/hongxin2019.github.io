@@ -11,82 +11,59 @@
     </div> -->
     <div class="container max-w-3xl font-normal">
       <div
-        class="bio divider flex flex-wrap px-5 py-10
+        class="divider flex flex-wrap px-5 py-10
         sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
       >
-        <g-image
+        <img
           class="rounded mr-10 shadow-xl"
-          src="~/assets/hongxin.jpg"
-          width="200"
+          :src="me.photo"
+          width="200" v-if="me.photo"
         />
         <div class="flex-col-reverse flex">
-          <p class="mt-5 max-w-sm">
-            I am a Ph.D. student advised by
-            <a class="" href="http://www.bigdatalab.ac.cn/~lanyanyan/"
-              >Yanyan Lan</a
-            >
-            at the Institute of Computing Technology (ICT), Chinese Academy of
-            Sciences. I work in the areas of computer vision and machine
-            learning with focus on visual reasoning, and joint processing of
-            text and image data. Before joining Yanyan Lan's research group, I
-            was an research intern at Megvii working on image inpainting.
-          </p>
+          <p class="mt-5 max-w-sm" v-html="me.bio" v-if="me.photo"></p>
+          <p class="mt-5" v-html="me.bio" v-else></p>
           <p class="text-orange-900 font-medium font-mono">
-            hongxin19b@ict.ac.cn
+            {{ me.email }}
           </p>
-          <p class="mt-8 text-2xl font-bold">洪鑫 · Xin Hong</p>
+          <p class="mt-8 text-2xl font-bold">
+            <span v-if="me.name_cn">{{me.name_cn}}</span>
+            <span v-if="me.name && me.name_cn"> · </span>
+            <span v-if="me.name">{{me.name}}</span>
+          </p>
         </div>
       </div>
 
-      <div class="publications divider px-5 py-10">
+      <div class="divider px-5 py-10">
         <p class="text-2xl font-bold">Publications</p>
 
-        <div class="mt-3">
-          <p class="font-bold italic">
-            Deep Fusion Network for Image Completion
+        <div
+          class="mt-5"
+          v-for="pub in me.cluster.publications"
+          :key="pub.title"
+        >
+          <p class="font-bold italic">{{ pub.title }}</p>
+          <p class="text-orange-900">
+            <span v-for="(author, index) in pub.authors" :key="author">
+              <span class="font-bold" v-if="author == $page.metadata.me.name">{{ author }}</span>
+              <span v-else>{{ author }}</span>
+              <span v-if="index != pub.authors.length">, </span>
+            </span>
           </p>
           <p class="text-orange-900">
-            <span class="font-bold">Xin Hong</span>, Pengfei Xiong, Haoqiang
-            Fan.
-          </p>
-          <p class="text-orange-900">
-            ACM International Conference on Multimedia (<span class="font-bold"
-              >ACMMM</span
-            >), 2019.
+            {{ pub.proceeding }} (<span class="font-bold">{{
+              pub.proceeding_abbr
+            }}</span
+            >), {{ pub.year }}<span class="font-bold" v-if="pub.honor"> {{ pub.honor }}</span>.
           </p>
           <div class="flex flex-row">
-            <p class="mr-3">
-              <a class="" href="/pdf/mm-2019-dfnet.pdf">
-                PDF
-              </a>
+            <p class="mr-3" v-if="pub.pdf">
+              <a class="" :href="pub.pdf">PDF</a>
             </p>
-            <p class="mr-3">
-              <a class="" href="https://github.com/hughplay/DFNet">
-                Code
-              </a>
+            <p class="mr-3" v-if="pub.code">
+              <a class="" :href="pub.code">Code</a>
             </p>
-          </div>
-        </div>
-
-        <div class="mt-5">
-          <p class="font-bold italic">
-            Attention-driven Factor Model for Explainable Personalized
-            Recommendation
-          </p>
-          <p class="text-orange-900">
-            Jingwu Chen, Fuzhen Zhuang,
-            <span class="font-bold">Xin Hong</span>, Xiang Ao, Xing Xie, Qing
-            He.
-          </p>
-          <p class="text-orange-900">
-            ACM SIGIR Conference on Research and Development in Information
-            Retrieval (<span class="font-bold">SIGIR</span>), 2018.
-          </p>
-          <div class="flex flex-row">
-            <p class="mr-3">
-              <a class="" href="/pdf/sigir-2018-afm.pdf">
-                PDF
-              </a>
+            <p class="mr-3" v-if="pub.project">
+              <a class="" :href="pub.project">Project</a>
             </p>
           </div>
         </div>
@@ -99,11 +76,46 @@
 
 <script>
 export default {
-  metaInfo: {
-    title: "Homepage"
+  metaInfo() {
+    return {
+      title: 'Homepage',
+    }
+  },
+  computed: {
+    me: function () {
+      return this.$page.metadata.me
+    }
   }
-};
+}
 </script>
 
-<style>
-</style>
+</script>
+
+<style></style>
+
+<page-query>
+query {
+	metadata: metadata {
+		me {
+			name
+			name_cn
+      photo
+			email
+			bio
+			cluster {
+				publications {
+					title
+					authors,
+					proceeding,
+					proceeding_abbr,
+					year,
+					pdf,
+					code,
+					project,
+					honor
+				}
+			}
+		}
+	}
+}
+</page-query>
