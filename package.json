@@ -6,7 +6,8 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d dist"
+    "deploy": "gh-pages -b master -d dist",
+    "update": "git commit -am 'update source' && git push origin source"
   },
   "dependencies": {
     "gh-pages": "^2.2.0",
