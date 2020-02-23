@@ -18,5 +18,8 @@ module.exports = {
         path: 'src/data/*.yaml'
       }
     }
-  ]
+  ],
+  chainWebpack: config => {
+    config.resolve.alias.set('@image', '@/assets/image')
+  },
 };

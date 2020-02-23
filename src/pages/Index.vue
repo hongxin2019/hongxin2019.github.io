@@ -14,9 +14,14 @@
         class="divider flex flex-wrap px-5 py-10
         sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
       >
-        <img
+        <!-- <img
           class="rounded mr-10 shadow-xl"
           :src="me.photo"
+          width="200" v-if="me.photo"
+        /> -->
+        <g-image
+          class="rounded mr-10 shadow-xl"
+          :src="require(`!!assets-loader?width=200!@image/${me.photo}`)"
           width="200" v-if="me.photo"
         />
         <div class="flex-col-reverse flex">

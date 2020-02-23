@@ -1,0 +1,40 @@
+me:
+  name_cn: 洪鑫
+  name: Xin Hong
+  # image directory: src/assets/image
+  photo: hongxin.jpg
+  email: hongxin19b@ict.ac.cn
+  bio: >
+    I am a Ph.D. student advised by
+    <a href="http://www.bigdatalab.ac.cn/~lanyanyan/">Yanyan Lan</a>
+    at the Institute of Computing Technology (ICT), Chinese Academy of
+    Sciences. I work in the areas of computer vision and machine
+    learning with focus on visual reasoning, and joint processing of
+    text and image data. Before joining Yanyan Lan's research group, I
+    was an research intern at Megvii working on image inpainting.
+
+  # Arrays of objects must include all possible keys in the first object
+  # static/pdf/*.pdf => /pdf/*.pdf
+  cluster:
+    publications:
+      - title: Deep Fusion Network for Image Completion
+        authors: ["Xin Hong", "Pengfei Xiong", "Haoqiang Fan"]
+        proceeding: ACM International Conference on Multimedia
+        proceeding_abbr: ACMMM
+        year: 2019
+        pdf: /pdf/mm-2019-dfnet.pdf
+        code: https://github.com/hughplay/DFNet
+        project: ''
+        honor: ''
+      - title: Attention-driven Factor Model for Explainable Personalized Recommendation
+        authors:
+          - "Jingwu Chen"
+          - "Fuzhen Zhuang"
+          - "Xin Hong"
+          - "Xiang Ao"
+          - "Xing Xie"
+          - "Qing He"
+        proceeding: ACM SIGIR Conference on Research and Development in Information Retrieval
+        proceeding_abbr: SIGIR
+        year: 2018
+        pdf: /pdf/sigir-2018-afm.pdf

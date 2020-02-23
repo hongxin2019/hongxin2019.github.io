@@ -7,7 +7,7 @@
     "explore": "gridsome explore",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d dist",
-    "postdeploy": "git commit -am 'update source' && git push origin source"
+    "postdeploy": "git add . --all && git commit -m 'update source' && git push origin source"
   },
   "dependencies": {
     "gh-pages": "^2.2.0",
