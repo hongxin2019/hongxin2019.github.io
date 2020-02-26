@@ -22,7 +22,7 @@
         <g-image
           class="rounded mr-10 shadow-xl"
           :src="require(`!!assets-loader?width=200!@image/${me.photo}`)"
-          width="200" v-if="me.photo"
+          width="200" height="281" v-if="me.photo"
         />
         <div class="flex-col-reverse flex">
           <p class="mt-5 max-w-sm" v-html="me.bio" v-if="me.photo"></p>
