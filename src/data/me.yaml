@@ -11,7 +11,7 @@ me:
     Sciences. I work in the areas of computer vision and machine
     learning with focus on visual reasoning, and joint processing of
     text and image data. Before joining Yanyan Lan's research group, I
-    was an research intern at Megvii working on image inpainting.
+    was an research intern at Megvii Technology working on image inpainting.
 
   # Arrays of objects must include all possible keys in the first object
   # static/pdf/*.pdf => /pdf/*.pdf
@@ -24,8 +24,8 @@ me:
         year: 2019
         pdf: /pdf/mm-2019-dfnet.pdf
         code: https://github.com/hughplay/DFNet
-        project: ''
-        honor: ''
+        project: ""
+        honor: ""
       - title: Attention-driven Factor Model for Explainable Personalized Recommendation
         authors:
           - "Jingwu Chen"
