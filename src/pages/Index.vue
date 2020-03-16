@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <!-- <div
-      class="fixed top-0 right-0 m-8 p-3 text-xs font-mono text-white h-6 w-6 rounded-full flex items-center justify-center bg-orange-700 sm:bg-pink-500 md:bg-orange-900 lg:bg-orange-900 xl:bg-orange-900"
+      class="fixed top-0 right-0 m-8 p-3 text-xs font-mono text-white h-6 w-6 rounded-full flex items-center justify-center bg-blue-700 sm:bg-pink-500 md:bg-blue-900 lg:bg-blue-900 xl:bg-blue-900"
     >
       <div class="block  sm:hidden md:hidden lg:hidden xl:hidden">al</div>
       <div class="hidden sm:block  md:hidden lg:hidden xl:hidden">sm</div>
@@ -9,9 +9,9 @@
       <div class="hidden sm:hidden md:hidden lg:block  xl:hidden">lg</div>
       <div class="hidden sm:hidden md:hidden lg:hidden xl:block">xl</div>
     </div> -->
-    <div class="container max-w-3xl font-normal">
+    <div>
       <div
-        class="divider flex flex-wrap px-5 py-10
+        class="flex flex-wrap px-5 py-16  mx-auto max-w-3xl
         sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
       >
         <!-- <img
@@ -20,14 +20,14 @@
           width="200" v-if="me.photo"
         /> -->
         <g-image
-          class="rounded mr-10 shadow-xl"
+          class="rounded mr-10 shadow-lg"
           :src="require(`!!assets-loader?width=200!@image/${me.photo}`)"
           width="200" height="281" v-if="me.photo"
         />
         <div class="flex-col-reverse flex">
           <p class="mt-5 max-w-sm" v-html="me.bio" v-if="me.photo"></p>
           <p class="mt-5" v-html="me.bio" v-else></p>
-          <p class="text-orange-900 font-medium font-mono">
+          <p class="text-blue-900 font-medium font-mono">
             {{ me.email }}
           </p>
           <p class="mt-8 text-2xl font-bold">
@@ -38,38 +38,44 @@
         </div>
       </div>
 
-      <div class="divider px-5 py-10">
-        <p class="text-2xl font-bold">Publications</p>
+    </div>
+
+
+
+    <div class="bg-gray-100 shadow-inner">
+
+      <div class="px-5 py-16 max-w-3xl mx-auto">
+        <p class="text-2xl font-bold mb-8">Publications</p>
 
         <div
-          class="mt-5"
+          class="my-5"
           v-for="pub in me.cluster.publications"
           :key="pub.title"
         >
           <p class="font-bold italic">{{ pub.title }}</p>
-          <p class="text-orange-900">
+          <p class="text-blue-900">
             <span v-for="(author, index) in pub.authors" :key="author">
               <span class="font-bold" v-if="author == $page.metadata.me.name">{{ author }}</span>
               <span v-else>{{ author }}</span>
               <span v-if="index != pub.authors.length">, </span>
             </span>
           </p>
-          <p class="text-orange-900">
+          <p class="text-blue-900">
             {{ pub.proceeding }} (<span class="font-bold">{{
               pub.proceeding_abbr
             }}</span
             >), {{ pub.year }}<span class="font-bold" v-if="pub.honor"> {{ pub.honor }}</span>.
           </p>
-          <div class="flex flex-row">
-            <p class="mr-3" v-if="pub.pdf">
-              <a class="" :href="pub.pdf">PDF</a>
-            </p>
-            <p class="mr-3" v-if="pub.code">
-              <a class="" :href="pub.code">Code</a>
-            </p>
-            <p class="mr-3" v-if="pub.project">
-              <a class="" :href="pub.project">Project</a>
-            </p>
+          <div class="flex flex-row my-2">
+            <a-btn class="mr-3" v-if="pub.pdf" :href="pub.pdf">
+              PDF
+            </a-btn>
+            <a-btn class="mr-3" v-if="pub.code" :href="pub.code">
+              Code
+            </a-btn>
+            <a-btn class="mr-3" v-if="pub.project" :href="pub.project">
+              Project
+            </a-btn>
           </div>
         </div>
       </div>
@@ -80,7 +86,12 @@
 </template>
 
 <script>
+import ButtonLink from '../components/ButtonLink'
+
 export default {
+  components: {
+    'a-btn': ButtonLink,
+  },
   metaInfo() {
     return {
       title: 'Homepage',
