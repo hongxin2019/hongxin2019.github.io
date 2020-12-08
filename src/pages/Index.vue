@@ -11,18 +11,19 @@
     </div> -->
     <div>
       <div
-        class="flex flex-wrap px-5 py-16  mx-auto max-w-3xl
-        sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
+        class="flex flex-wrap px-5 py-16 mx-auto max-w-3xl sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
       >
         <!-- <img
           class="rounded mr-10 shadow-xl"
           :src="me.photo"
           width="200" v-if="me.photo"
         /> -->
-        <g-image
+        <img
           class="rounded mr-10 shadow-lg"
-          :src="require(`!!assets-loader?width=200!@image/${me.photo}`)"
-          width="200" height="281" v-if="me.photo"
+          :src="require('@/assets/image/' + me.photo)"
+          width="200"
+          height="281"
+          v-if="me.photo"
         />
         <div class="flex-col-reverse flex">
           <p class="mt-5 max-w-sm" v-html="me.bio" v-if="me.photo"></p>
@@ -31,48 +32,41 @@
             {{ me.email }}
           </p>
           <p class="mt-8 text-2xl font-bold">
-            <span v-if="me.name_cn">{{me.name_cn}}</span>
+            <span v-if="me.name_cn">{{ me.name_cn }}</span>
             <span v-if="me.name && me.name_cn"> · </span>
-            <span v-if="me.name">{{me.name}}</span>
+            <span v-if="me.name">{{ me.name }}</span>
           </p>
         </div>
       </div>
-
     </div>
 
-
-
     <div class="bg-gray-100 shadow-inner">
-
       <div class="px-5 py-16 max-w-3xl mx-auto">
         <p class="text-2xl font-bold mb-8">Publications</p>
 
-        <div
-          class="my-5"
-          v-for="pub in me.cluster.publications"
-          :key="pub.title"
-        >
+        <div class="my-5" v-for="pub in publications" :key="pub.title">
           <p class="font-bold italic">{{ pub.title }}</p>
           <p class="text-blue-900">
             <span v-for="(author, index) in pub.authors" :key="author">
-              <span class="font-bold" v-if="author == $page.metadata.me.name">{{ author }}</span>
+              <span class="font-bold" v-if="author == $page.metadata.me.name">{{
+                author
+              }}</span>
               <span v-else>{{ author }}</span>
               <span v-if="index != pub.authors.length">, </span>
             </span>
           </p>
           <p class="text-blue-900">
-            {{ pub.proceeding }} (<span class="font-bold">{{
-              pub.proceeding_abbr
-            }}</span
-            >), {{ pub.year }}<span class="font-bold" v-if="pub.honor"> {{ pub.honor }}</span>.
+            <span>{{ pub.proceeding }}</span>
+            <span v-if="pub.proceeding_abbr" class="font-bold">
+              ({{ pub.proceeding_abbr }})
+            </span>
+            <span>, {{ pub.year }}</span>
+            <span class="font-bold" v-if="pub.honor">{{ pub.honor }}</span>
+            <span>.</span>
           </p>
           <div class="flex flex-row my-2">
-            <a-btn class="mr-3" v-if="pub.pdf" :href="pub.pdf">
-              PDF
-            </a-btn>
-            <a-btn class="mr-3" v-if="pub.code" :href="pub.code">
-              Code
-            </a-btn>
+            <a-btn class="mr-3" v-if="pub.pdf" :href="pub.pdf"> PDF </a-btn>
+            <a-btn class="mr-3" v-if="pub.code" :href="pub.code"> Code </a-btn>
             <a-btn class="mr-3" v-if="pub.project" :href="pub.project">
               Project
             </a-btn>
@@ -86,7 +80,7 @@
 </template>
 
 <script>
-import ButtonLink from '../components/ButtonLink'
+import ButtonLink from '../components/ButtonLink';
 
 export default {
   components: {
@@ -95,16 +89,35 @@ export default {
   metaInfo() {
     return {
       title: 'Homepage',
-    }
+    };
+  },
+  methods: {
+    compare_pub: function (a, b) {
+      if (a.year > b.year) {
+        return 1;
+      } else if (a.year < b.year) {
+        return -1;
+      }
+
+      if (a.pdf > b.pdf) {
+        return 1;
+      } else if (a.pdf < b.pdf) {
+        return -1;
+      }
+
+      return 0;
+    },
   },
   computed: {
     me: function () {
-      return this.$page.metadata.me
-    }
-  }
-}
-</script>
-
+      return this.$page.metadata.me;
+    },
+    publications: function () {
+      var pubs = this.me.cluster.publications;
+      return pubs.sort(this.compare_pub).reverse();
+    },
+  },
+};
 </script>
 
 <style></style>
