@@ -9,7 +9,7 @@
       <div class="hidden sm:hidden md:hidden lg:block  xl:hidden">lg</div>
       <div class="hidden sm:hidden md:hidden lg:hidden xl:block">xl</div>
     </div> -->
-    <div>
+    <div class="border-b border-gray-300">
       <div
         class="flex flex-wrap px-5 py-16 mx-auto max-w-3xl sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
       >
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="bg-gray-100 shadow-inner">
+    <div class="border-b border-gray-300">
       <div class="px-5 py-16 max-w-3xl mx-auto">
         <p class="text-2xl font-bold mb-8">Publications</p>
 
@@ -73,8 +73,6 @@
           </div>
         </div>
       </div>
-
-      <p class="mb-20"></p>
     </div>
   </Layout>
 </template>
