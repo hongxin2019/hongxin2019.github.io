@@ -13,6 +13,12 @@ module.exports = {
       use: 'gridsome-plugin-tailwindcss',
     },
     {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'G-31C2ZK36PK'
+      }
+    },
+    {
       use: 'gridsome-source-static-meta',
       options: {
         path: 'src/data/*.yaml'
