@@ -40,7 +40,11 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="border-b border-gray-300">
+=======
+    <div class="bg-gray-100 shadow-inner">
+>>>>>>> 3fd2553f9fc1b6196fea3ea0c97452b8fc53cf68
       <div class="px-5 py-16 max-w-3xl mx-auto">
         <p class="text-2xl font-bold mb-8">Publications</p>
 

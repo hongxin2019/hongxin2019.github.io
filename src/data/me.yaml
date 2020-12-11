@@ -40,7 +40,7 @@ me:
         pdf: /pdf/sigir-2018-afm.pdf
       - title: Transformation Driven Visual Reasoning
         authors: ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
-        proceeding: preprint
+        proceeding: Preprint
         proceeding_abbr: ""
         year: 2020
         pdf: "https://arxiv.org/pdf/2011.13160.pdf"
