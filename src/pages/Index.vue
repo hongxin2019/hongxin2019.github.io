@@ -74,6 +74,15 @@
         </div>
       </div>
     </div>
+
+    <div class="">
+      <div class="px-5 py-16 max-w-3xl mx-auto">
+        <a href="https://clustrmaps.com/site/1bey7" title="Visit tracker"
+          ><img class="mx-auto rounded"
+            src="//www.clustrmaps.com/map_v2.png?d=2aJ6BDWYMWIFRD7ZCecw8HTEpJgFvXZj4gPf96mQlHM&cl=ffffff"
+        /></a>
+      </div>
+    </div>
   </Layout>
 </template>
 
