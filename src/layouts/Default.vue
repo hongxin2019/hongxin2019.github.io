@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font-serif">
     <slot />
   </div>
 </template>
@@ -13,10 +13,7 @@ query {
 </static-query>
 
 <style>
-.divider {
-  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.15);
-}
-a {
+.link {
   transition-property: background-color, color;
   transition-duration: 200ms;
   color: #4299E1;
@@ -25,7 +22,7 @@ a {
   background-position: 0 1em;
   text-shadow: 0.05em 0 white, -0.05em 0 white;
 }
-a:hover {
+.link:hover {
   color: #2B6CB0;
   background: linear-gradient(90deg, #2B6CB0 66%, transparent 0) repeat-x;
   background-size: 0.15em 1px;

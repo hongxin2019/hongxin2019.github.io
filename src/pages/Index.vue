@@ -10,91 +10,119 @@
       <div class="hidden sm:hidden md:hidden lg:hidden xl:block">xl</div>
     </div> -->
     <div class="border-b border-gray-300">
-      <div
-        class="flex flex-wrap px-5 py-16 mx-auto max-w-3xl sm:flex-no-wrap md:flex-no-wrap lg:flex-no-wrap xl:flex-nowrap"
-      >
+      <div class="flex flex-wrap px-5 py-16 mx-auto max-w-3xl sm:flex-no-wrap">
         <!-- <img
           class="rounded mr-10 shadow-xl"
           :src="me.photo"
           width="200" v-if="me.photo"
         /> -->
-        <img
-          class="rounded mr-10 shadow-lg"
-          :src="require('@/assets/image/' + me.photo)"
-          width="200"
-          height="281"
-          v-if="me.photo"
-        />
-        <div class="flex-col-reverse flex">
-          <p class="mt-5 max-w-sm" v-html="me.bio" v-if="me.photo"></p>
-          <p class="mt-5" v-html="me.bio" v-else></p>
+        <div class="w-40 mr-10">
+          <img
+            class="rounded shadow-lg object-contain"
+            :src="require('@/assets/image/' + me.photo)"
+            v-if="me.photo"
+          />
+        </div>
+        <div class="">
+          <p class="text-2xl mt-8 sm:mt-2 font-sans font-bold">
+            <span v-if="me.name">{{ me.name }}</span>
+            <!-- <span v-if="me.name && me.name_cn"> · </span> -->
+            <span v-if="me.name_cn"> ( {{ me.name_cn }} )</span>
+          </p>
           <p class="text-blue-900 font-medium font-mono">
             {{ me.email }}
           </p>
-          <p class="mt-8 text-2xl font-bold">
-            <span v-if="me.name_cn">{{ me.name_cn }}</span>
-            <span v-if="me.name && me.name_cn"> · </span>
-            <span v-if="me.name">{{ me.name }}</span>
-          </p>
+          <p class="mt-5 max-w-sm sm:max-w-md" v-html="me.bio" v-if="me.photo"></p>
+          <p class="mt-5" v-html="me.bio" v-else></p>
         </div>
       </div>
     </div>
 
     <div class="border-b border-gray-300">
       <div class="px-5 py-16 max-w-3xl mx-auto">
-        <p class="text-2xl font-bold mb-8">Publications</p>
+        <p class="text-2xl mb-8 font-bold font-sans">Publications</p>
 
-        <div class="my-5" v-for="pub in publications" :key="pub.title">
-          <p class="font-bold italic">{{ pub.title }}</p>
-          <p class="text-blue-900">
-            <span v-for="(author, index) in pub.authors" :key="author">
-              <span class="font-bold" v-if="author == $page.metadata.me.name">{{
-                author
-              }}</span>
-              <span v-else>{{ author }}</span>
-              <span v-if="index != pub.authors.length">, </span>
-            </span>
-          </p>
-          <p class="text-blue-900">
-            <span>{{ pub.proceeding }}</span>
-            <span v-if="pub.proceeding_abbr" class="font-bold">
-              ({{ pub.proceeding_abbr }})
-            </span>
-            <span>, {{ pub.year }}</span>
-            <span class="font-bold" v-if="pub.honor">{{ pub.honor }}</span>
-            <span>.</span>
-          </p>
-          <div class="flex flex-row my-2">
-            <a-btn class="mr-3" v-if="pub.pdf" :href="pub.pdf"> PDF </a-btn>
-            <a-btn class="mr-3" v-if="pub.code" :href="pub.code"> Code </a-btn>
-            <a-btn class="mr-3" v-if="pub.project" :href="pub.project">
-              Project
-            </a-btn>
+        <div class="mt-8" v-for="(pub, pub_i) in publications" :key="pub.title">
+          <div class="sm:flex">
+            <div class="w-64 sm:w-64">
+              <a :href="pub.homepage || pub.pdf">
+                <img
+                  :src="require('@/assets/image/' + pub.img)"
+                  class="object-contain"
+                  v-if="pub.img"
+                />
+              </a>
+            </div>
+            <div class="mt-2 sm:mt-0 sm:ml-5 w-full">
+              <p class="font-bold">
+                <span class="">{{ pub.title }}</span>
+              </p>
+              <div class="text-sm">
+                <p class="italic text-gray-700">
+                  <span v-for="(author, index) in pub.authors" :key="author">
+                    <span
+                      class="font-bold text-blue-900"
+                      v-if="author == $page.metadata.me.name"
+                      >{{ author }}</span
+                    >
+                    <span v-else>{{ author }}</span>
+                    <span v-if="index != pub.authors.length - 1">, </span>
+                    <span v-else>.</span>
+                  </span>
+                </p>
+                <p class="text-gray-700">
+                  <span>{{ pub.proceeding }}</span>
+                  <span class="">
+                    <span v-if="pub.proceeding_abbr" class="font-bold text-blue-900">
+                      ({{ pub.proceeding_abbr }}),</span
+                    ><span> {{ pub.year }}</span>
+                  </span>
+                  <span class="font-bold" v-if="pub.honor">{{
+                    pub.honor
+                  }}</span>
+                  <span>.</span>
+                </p>
+              </div>
+              <div class="flex text-lg text-gray-900">
+                <a :href="pub.pdf" v-if="pub.pdf" class="block mr-2 hover:text-blue-800">
+                  <font-awesome-icon :icon="['far', 'file-pdf']" />
+                </a>
+                <a :href="pub.code" v-if="pub.code" class="block mr-2 hover:text-blue-800">
+                  <font-awesome-icon :icon="['fab', 'github']" />
+                </a>
+                <a :href="pub.homepage" v-if="pub.homepage" class="block mr-2 hover:text-blue-800">
+                  <font-awesome-icon :icon="['fas', 'home']" />
+                </a>
+              </div>
+            </div>
           </div>
+          <div
+            class="border-b h-8 w-full"
+            v-if="pub_i != publications.length - 1"
+          ></div>
         </div>
       </div>
     </div>
 
     <div class="">
-      <div class="px-5 py-16 max-w-3xl mx-auto flex justify-center" >
-        <div class="w-64" id="counter-wrap">
-
-        </div>
+      <div class="px-5 py-16 max-w-3xl mx-auto flex justify-center">
+        <div class="w-64" id="counter-wrap"></div>
       </div>
     </div>
   </Layout>
 </template>
 
 <script>
-import ButtonLink from '../components/ButtonLink';
+import ButtonLink from "../components/ButtonLink";
 
 export default {
   components: {
-    'a-btn': ButtonLink,
+    "a-btn": ButtonLink,
   },
   metaInfo() {
     return {
-      title: 'Homepage',
+      title: "Xin Hong (ICT)",
+      titleTemplate: null,
     };
   },
   methods: {
@@ -124,13 +152,15 @@ export default {
     },
   },
   mounted() {
-    let counter = document.createElement('script');
-    counter.setAttribute(
-      'src',
-      '//cdn.clustrmaps.com/map_v2.js?cl=374151&w=a&t=tt&d=2aJ6BDWYMWIFRD7ZCecw8HTEpJgFvXZj4gPf96mQlHM&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=6b7280'
-    );
-    counter.setAttribute('id', 'clustrmaps');
-    document.getElementById('counter-wrap').appendChild(counter);
+    if (process.env.NODE_ENV != "development") {
+      let counter = document.createElement("script");
+      counter.setAttribute(
+        "src",
+        "//cdn.clustrmaps.com/map_v2.js?cl=374151&w=a&t=tt&d=2aJ6BDWYMWIFRD7ZCecw8HTEpJgFvXZj4gPf96mQlHM&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=6b7280"
+      );
+      counter.setAttribute("id", "clustrmaps");
+      document.getElementById("counter-wrap").appendChild(counter);
+    }
   },
 };
 </script>
@@ -155,8 +185,9 @@ query {
 					year,
 					pdf,
 					code,
-					project,
-					honor
+					homepage,
+					honor,
+          img
 				}
 			}
 		}

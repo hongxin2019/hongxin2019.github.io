@@ -6,8 +6,6 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Gill Sans",
-          "Gill Sans MT",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -24,7 +22,7 @@ module.exports = {
           "Microsoft Yahei"
         ],
         serif: [
-          "Palatino",
+          // "Palatino",
           "Georgia",
           "Cambria",
           "Times New Roman",
