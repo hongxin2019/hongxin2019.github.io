@@ -74,8 +74,8 @@
                   <span>{{ pub.proceeding }}</span>
                   <span class="">
                     <span v-if="pub.proceeding_abbr" class="font-bold text-blue-900">
-                      ({{ pub.proceeding_abbr }}),</span
-                    ><span> {{ pub.year }}</span>
+                      ({{ pub.proceeding_abbr }})</span
+                    ><span>, {{ pub.year }}</span>
                   </span>
                   <span class="font-bold" v-if="pub.honor">{{
                     pub.honor
