@@ -26,14 +26,37 @@
         <div class="">
           <p class="text-2xl mt-8 sm:mt-2 font-sans font-bold">
             <span v-if="me.name">{{ me.name }}</span>
+
             <!-- <span v-if="me.name && me.name_cn"> · </span> -->
+
             <span v-if="me.name_cn"> ( {{ me.name_cn }} )</span>
           </p>
           <p class="text-blue-900 font-medium font-mono">
             {{ me.email }}
           </p>
-          <p class="mt-5 max-w-sm sm:max-w-md" v-html="me.bio" v-if="me.photo"></p>
+          <p
+            class="mt-3 max-w-sm sm:max-w-md"
+            v-html="me.bio"
+            v-if="me.photo"
+          ></p>
           <p class="mt-5" v-html="me.bio" v-else></p>
+          <div
+            v-if="me.github || me.scholar"
+            class="mt-3 text-blue-900 text-sm flex"
+          >
+            <p v-if="me.github" class="mr-2">
+              <a :href="me.github">
+                <font-awesome-icon :icon="['fab', 'github']" />
+                Github
+              </a>
+            </p>
+            <p v-if="me.scholar">
+              <a :href="me.scholar">
+                <font-awesome-icon :icon="['fab', 'google']" />
+                Google Scholar
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +96,10 @@
                 <p class="text-gray-700">
                   <span>{{ pub.proceeding }}</span>
                   <span class="">
-                    <span v-if="pub.proceeding_abbr" class="font-bold text-blue-900">
+                    <span
+                      v-if="pub.proceeding_abbr"
+                      class="font-bold text-blue-900"
+                    >
                       ({{ pub.proceeding_abbr }})</span
                     ><span>, {{ pub.year }}</span>
                   </span>
@@ -84,13 +110,25 @@
                 </p>
               </div>
               <div class="flex text-lg text-gray-900">
-                <a :href="pub.pdf" v-if="pub.pdf" class="block mr-2 hover:text-blue-800">
+                <a
+                  :href="pub.pdf"
+                  v-if="pub.pdf"
+                  class="block mr-2 hover:text-blue-800"
+                >
                   <font-awesome-icon :icon="['far', 'file-pdf']" />
                 </a>
-                <a :href="pub.code" v-if="pub.code" class="block mr-2 hover:text-blue-800">
+                <a
+                  :href="pub.code"
+                  v-if="pub.code"
+                  class="block mr-2 hover:text-blue-800"
+                >
                   <font-awesome-icon :icon="['fab', 'github']" />
                 </a>
-                <a :href="pub.homepage" v-if="pub.homepage" class="block mr-2 hover:text-blue-800">
+                <a
+                  :href="pub.homepage"
+                  v-if="pub.homepage"
+                  class="block mr-2 hover:text-blue-800"
+                >
                   <font-awesome-icon :icon="['fas', 'home']" />
                 </a>
               </div>
@@ -121,7 +159,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: "Xin Hong (ICT)",
+      title: "Xin Hong",
       titleTemplate: null,
     };
   },
@@ -175,6 +213,8 @@ query {
 			name_cn
       photo
 			email
+      github
+      scholar
 			bio
 			cluster {
 				publications {
