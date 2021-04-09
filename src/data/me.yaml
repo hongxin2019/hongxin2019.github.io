@@ -7,10 +7,10 @@ me:
   github: "https://github.com/hughplay"
   scholar: "https://scholar.google.com/citations?user=gW-9WOQAAAAJ&hl=en"
   bio: >
-    I am a Ph.D. student advised by
+    Xin Hong is a Ph.D. student advised by
     <a class="link" href="http://www.bigdatalab.ac.cn/~lanyanyan/">Yanyan Lan</a>
     at the Institute of Computing Technology (ICT), Chinese Academy of
-    Sciences. I work in the areas of computer vision and machine
+    Sciences. He works in the areas of computer vision and machine
     learning with focus on visual reasoning, and joint processing of
     text and image data.
 
@@ -19,7 +19,7 @@ me:
   cluster:
     publications:
       - title: Deep Fusion Network for Image Completion
-        authors: ["Xin Hong", "Pengfei Xiong", "Haoqiang Fan"]
+        authors: ["Xin Hong", "Pengfei Xiong", "Renhe Ji", "Haoqiang Fan"]
         proceeding: ACM International Conference on Multimedia
         proceeding_abbr: ACMMM
         year: 2019
