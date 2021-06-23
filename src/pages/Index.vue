@@ -42,17 +42,25 @@
           <p class="mt-5" v-html="me.bio" v-else></p>
           <div
             v-if="me.github || me.scholar"
-            class="mt-3 text-blue-900 text-sm flex"
+            class="mt-3 text-blue-900 text-md flex"
           >
-            <p v-if="me.github" class="mr-2">
-              <a :href="me.github">
-                <font-awesome-icon :icon="['fab', 'github']" />
+            <p v-if="me.github" class="mr-3">
+              <a :href="me.github" class="flex items-start">
+                <git-hub-icon
+                  class="mr-1"
+                  size="1.25x"
+                  fill="#2a4365"
+                ></git-hub-icon>
                 Github
               </a>
             </p>
             <p v-if="me.scholar">
-              <a :href="me.scholar">
-                <font-awesome-icon :icon="['fab', 'google']" />
+              <a :href="me.scholar" class="flex items-start">
+                <google-scholar-icon
+                  class="mr-1"
+                  size="1.25x"
+                  fill="#2a4365"
+                ></google-scholar-icon>
                 Google Scholar
               </a>
             </p>
@@ -109,27 +117,34 @@
                   <span>.</span>
                 </p>
               </div>
-              <div class="flex text-lg text-gray-900">
+              <div class="flex text-gray-900 items-center mt-2 pl-1">
                 <a
-                  :href="pub.pdf"
-                  v-if="pub.pdf"
-                  class="block mr-2 hover:text-blue-800"
+                  :href="pub.homepage"
+                  v-if="pub.homepage"
+                  class="block mr-3 hover:text-blue-800 flex items-center"
                 >
-                  <font-awesome-icon :icon="['far', 'file-pdf']" />
+                  <font-awesome-icon class="text-lg" :icon="['fas', 'home']" />
                 </a>
                 <a
                   :href="pub.code"
                   v-if="pub.code"
-                  class="block mr-2 hover:text-blue-800"
+                  class="block mr-3 hover:text-blue-800 flex items-center"
                 >
-                  <font-awesome-icon :icon="['fab', 'github']" />
+                  <git-hub-icon size="1.2x" class="custom-class"></git-hub-icon>
                 </a>
                 <a
-                  :href="pub.homepage"
-                  v-if="pub.homepage"
-                  class="block mr-2 hover:text-blue-800"
+                  :href="pub.notebook"
+                  v-if="pub.notebook"
+                  class="block mr-3 hover:text-blue-800 flex items-center"
                 >
-                  <font-awesome-icon :icon="['fas', 'home']" />
+                  <google-colab-icon size="1.25x"></google-colab-icon>
+                </a>
+                <a
+                  :href="pub.pdf"
+                  v-if="pub.pdf"
+                  class="block mr-3 hover:text-blue-800 flex items-center"
+                >
+                  <adobe-acrobat-reader-icon size="1.2x"></adobe-acrobat-reader-icon>
                 </a>
               </div>
             </div>
@@ -152,10 +167,20 @@
 
 <script>
 import ButtonLink from "../components/ButtonLink";
+import {
+  GoogleColabIcon,
+  GitHubIcon,
+  GoogleScholarIcon,
+  AdobeAcrobatReaderIcon,
+} from "vue-simple-icons";
 
 export default {
   components: {
     "a-btn": ButtonLink,
+    GoogleColabIcon,
+    GitHubIcon,
+    GoogleScholarIcon,
+    AdobeAcrobatReaderIcon,
   },
   metaInfo() {
     return {
@@ -223,9 +248,10 @@ query {
 					proceeding,
 					proceeding_abbr,
 					year,
-					pdf,
-					code,
 					homepage,
+					code,
+          notebook,
+					pdf,
 					honor,
           img
 				}
