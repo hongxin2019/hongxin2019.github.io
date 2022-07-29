@@ -7,7 +7,7 @@
 module.exports = {
   siteName: 'Xin Hong (ICT)',
   siteDescription:
-    "Xin Hong is a Ph.D. student advised by Yanyan Lan at the Institute of Computing Technology (ICT), Chinese Academy of Sciences. I work in the areas of computer vision and machine learning with focus on visual reasoning, and joint processing of vision and language. Before joining Yanyan Lan's research group, I was an research intern at Megvii Technology working on image inpainting.",
+    "I am a Ph.D. student advised by Yanyan Lan at the Institute of Computing Technology (ICT), Chinese Academy of Sciences. I work in the areas of computer vision and machine learning with focus on visual reasoning, and joint processing of vision and language. Before joining Yanyan Lan's research group, I was an research intern at Megvii Technology working on image inpainting.",
   siteUrl: 'https://hongxin2019.github.io',
   plugins: [
     {

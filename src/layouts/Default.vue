@@ -1,5 +1,5 @@
 <template>
-  <div class="font-serif">
+  <div class="text-sm" style="line-height: normal;">
     <slot />
   </div>
 </template>

@@ -24,12 +24,12 @@
           />
         </div>
         <div class="">
-          <p class="text-2xl mt-8 sm:mt-2 font-sans font-bold">
+          <p class="text-3xl mt-8 sm:mt-2">
             <span v-if="me.name">{{ me.name }}</span>
 
             <!-- <span v-if="me.name && me.name_cn"> · </span> -->
 
-            <span v-if="me.name_cn"> ( {{ me.name_cn }} )</span>
+            <span v-if="me.name_cn">「{{ me.name_cn }}」</span>
           </p>
           <p class="text-blue-900 font-medium font-mono">
             {{ me.email }}
@@ -40,10 +40,7 @@
             v-if="me.photo"
           ></p>
           <p class="mt-5" v-html="me.bio" v-else></p>
-          <div
-            v-if="me.github || me.scholar"
-            class="mt-3 text-blue-900 text-md flex"
-          >
+          <div v-if="me.github || me.scholar" class="mt-3 text-blue-900 flex">
             <p v-if="me.github" class="mr-3">
               <a :href="me.github" class="flex items-start">
                 <git-hub-icon
@@ -71,7 +68,7 @@
 
     <div class="border-b border-gray-300">
       <div class="px-5 py-16 max-w-3xl mx-auto">
-        <p class="text-2xl mb-8 font-bold font-sans">Publications</p>
+        <p class="text-xl mb-8 font-medium">Research</p>
 
         <div class="mt-8" v-for="(pub, pub_i) in publications" :key="pub.title">
           <div class="sm:flex">
@@ -86,13 +83,16 @@
             </div>
             <div class="mt-2 sm:mt-0 sm:ml-5 w-full">
               <p class="font-bold">
-                <span class="">{{ pub.title }}</span>
+                <a :href="pub.homepage" v-if="pub.homepage">
+                  <span class="link">{{ pub.title }}</span>
+                </a>
+                <span class="" v-else>{{ pub.title }}</span>
               </p>
               <div class="text-sm">
-                <p class="italic text-gray-700">
+                <p class="text-gray-700">
                   <span v-for="(author, index) in pub.authors" :key="author">
                     <span
-                      class="font-bold text-blue-900"
+                      class="font-bold"
                       v-if="author == $page.metadata.me.name"
                       >{{ author }}</span
                     >
@@ -102,7 +102,7 @@
                   </span>
                 </p>
                 <p class="text-gray-700">
-                  <span>{{ pub.proceeding }}</span>
+                  <!-- <span>{{ pub.proceeding }}</span>
                   <span class="">
                     <span
                       v-if="pub.proceeding_abbr"
@@ -110,11 +110,17 @@
                     >
                       ({{ pub.proceeding_abbr }})</span
                     ><span>, {{ pub.year }}</span>
+                  </span> -->
+                  <span class="italic">
+                    <span v-if="pub.proceeding_abbr">{{
+                      pub.proceeding_abbr
+                    }}</span>
+                    <span v-else>{{ pub.proceeding }}</span>
                   </span>
-                  <span class="font-bold" v-if="pub.honor">{{
-                    pub.honor
-                  }}</span>
-                  <span>.</span>
+                  <span>,{{ pub.year }}</span>
+                  <span class="font-bold" v-if="pub.honor"
+                    >,{{ pub.honor }}</span
+                  >
                 </p>
               </div>
               <div class="flex text-gray-900 items-center mt-2 pl-1">
@@ -144,7 +150,9 @@
                   v-if="pub.pdf"
                   class="block mr-3 hover:text-blue-800 flex items-center"
                 >
-                  <adobe-acrobat-reader-icon size="1.2x"></adobe-acrobat-reader-icon>
+                  <adobe-acrobat-reader-icon
+                    size="1.2x"
+                  ></adobe-acrobat-reader-icon>
                 </a>
               </div>
             </div>
