@@ -17,11 +17,8 @@
           width="200" v-if="me.photo"
         /> -->
         <div class="w-40 mr-10">
-          <img
-            class="rounded shadow-lg object-contain"
-            :src="require('@/assets/image/' + me.photo)"
-            v-if="me.photo"
-          />
+          <img class="rounded shadow-lg object-contain"
+            :src="require('@/assets/image/' + me.photo)" v-if="me.photo" />
         </div>
         <div class="">
           <p class="text-3xl mt-8 sm:mt-2">
@@ -31,33 +28,29 @@
 
             <span v-if="me.name_cn">「{{ me.name_cn }}」</span>
           </p>
-          <p class="text-blue-900 font-medium font-mono">
+          <!-- <p class="text-blue-900 font-medium font-mono">
             {{ me.email }}
+          </p> -->
+          <p class="mt-3 max-w-sm sm:max-w-md" v-html="me.bio" v-if="me.photo">
           </p>
-          <p
-            class="mt-3 max-w-sm sm:max-w-md"
-            v-html="me.bio"
-            v-if="me.photo"
-          ></p>
           <p class="mt-5" v-html="me.bio" v-else></p>
-          <div v-if="me.github || me.scholar" class="mt-3 text-blue-900 flex">
-            <p v-if="me.github" class="mr-3">
-              <a :href="me.github" class="flex items-start">
-                <git-hub-icon
-                  class="mr-1"
-                  size="1.25x"
-                  fill="#2a4365"
-                ></git-hub-icon>
+          <div v-if="me.email || me.github || me.scholar"
+            class="mt-3 text-blue-900 flex" :set="me_prev=false">
+            <p v-if="me.email">
+              <a :href="'mailto:' + me.email" class="flex items-start"
+                :set="me_prev=true">
+                Email
+              </a>
+            </p>
+            <p v-if="me_prev" class="mx-1">/</p>
+            <p v-if="me.github">
+              <a :href="me.github" class="flex items-start" :set="me_prev=true">
                 Github
               </a>
             </p>
+            <p v-if="me_prev" class="mx-1">/</p>
             <p v-if="me.scholar">
               <a :href="me.scholar" class="flex items-start">
-                <google-scholar-icon
-                  class="mr-1"
-                  size="1.25x"
-                  fill="#2a4365"
-                ></google-scholar-icon>
                 Google Scholar
               </a>
             </p>
@@ -67,42 +60,41 @@
     </div>
 
     <div class="border-b border-gray-300">
-      <div class="px-5 py-16 max-w-3xl mx-auto">
-        <p class="text-xl mb-8 font-medium">Research</p>
+      <div class="sm:px-0 px-5 my-16 max-w-3xl mx-auto">
+        <p class="text-2xl mb-8 font-medium">Research</p>
 
-        <div class="mt-8" v-for="(pub, pub_i) in publications" :key="pub.title">
-          <div class="sm:flex">
-            <div class="w-64 sm:w-64">
-              <a :href="pub.homepage || pub.pdf">
-                <img
-                  :src="require('@/assets/image/' + pub.img)"
-                  class="object-contain"
-                  v-if="pub.img"
-                />
+        <p v-if="me.interests" class="my-8">
+          {{ me.interests }}
+        </p>
+
+        <div class="sm:flex" v-for="(pub, pub_i) in publications"
+          :key="pub.title">
+          <div class="p-5 pl-0 w-1/4 flex flex-col justify-center">
+            <a :href="pub.homepage || pub.pdf">
+              <img :src="require('@/assets/image/' + pub.img)"
+                class="object-contain" v-if="pub.img" />
+            </a>
+          </div>
+          <div class="p-5 pr-0 w-3/4 flex flex-col justify-center">
+            <p class="font-bold">
+              <a :href="pub.homepage || pub.code || pub.pdf"
+                v-if="pub.homepage || pub.code || pub.pdf">
+                <span class="link">{{ pub.title }}</span>
               </a>
-            </div>
-            <div class="mt-2 sm:mt-0 sm:ml-5 w-full">
-              <p class="font-bold">
-                <a :href="pub.homepage" v-if="pub.homepage">
-                  <span class="link">{{ pub.title }}</span>
-                </a>
-                <span class="" v-else>{{ pub.title }}</span>
+              <span class="" v-else>{{ pub.title }}</span>
+            </p>
+            <div class="text-sm">
+              <p class="">
+                <span v-for="(author, index) in pub.authors" :key="author">
+                  <span class="font-bold"
+                    v-if="author == $page.metadata.me.name">{{ author
+                    }}</span>
+                  <span v-else>{{ author }}</span>
+                  <span v-if="index != pub.authors.length - 1">, </span>
+                </span>
               </p>
-              <div class="text-sm">
-                <p class="text-gray-700">
-                  <span v-for="(author, index) in pub.authors" :key="author">
-                    <span
-                      class="font-bold"
-                      v-if="author == $page.metadata.me.name"
-                      >{{ author }}</span
-                    >
-                    <span v-else>{{ author }}</span>
-                    <span v-if="index != pub.authors.length - 1">, </span>
-                    <span v-else>.</span>
-                  </span>
-                </p>
-                <p class="text-gray-700">
-                  <!-- <span>{{ pub.proceeding }}</span>
+              <p class="">
+                <!-- <span>{{ pub.proceeding }}</span>
                   <span class="">
                     <span
                       v-if="pub.proceeding_abbr"
@@ -111,58 +103,75 @@
                       ({{ pub.proceeding_abbr }})</span
                     ><span>, {{ pub.year }}</span>
                   </span> -->
-                  <span class="italic">
-                    <span v-if="pub.proceeding_abbr">{{
-                      pub.proceeding_abbr
-                    }}</span>
-                    <span v-else>{{ pub.proceeding }}</span>
-                  </span>
-                  <span>,{{ pub.year }}</span>
-                  <span class="font-bold" v-if="pub.honor"
-                    >,{{ pub.honor }}</span
-                  >
-                </p>
+                <span class="italic">
+                  <span v-if="pub.proceeding_abbr">{{
+                  pub.proceeding_abbr
+                  }}</span>
+                  <span v-else>{{ pub.proceeding }}</span>
+                </span>
+                <span>, {{ pub.year }}</span>
+                <span class="font-bold" v-if="pub.honor">,{{ pub.honor
+                }}</span>
+              </p>
+            </div>
+            <div class="flex items-center" :set="previous=false">
+              <div v-if="pub.homepage">
+                <a :href="pub.homepage">
+                  <span :set="previous=true">Project Page</span>
+                </a>
               </div>
-              <div class="flex text-gray-900 items-center mt-2 pl-1">
-                <a
-                  :href="pub.homepage"
-                  v-if="pub.homepage"
-                  class="block mr-3 hover:text-blue-800 flex items-center"
-                >
-                  <font-awesome-icon class="text-lg" :icon="['fas', 'home']" />
+              <div v-if="pub.code">
+                <span v-if="previous" class="mx-1">/</span>
+                <a :href="pub.code">
+                  <span :set="previous=true">Code</span>
                 </a>
-                <a
-                  :href="pub.code"
-                  v-if="pub.code"
-                  class="block mr-3 hover:text-blue-800 flex items-center"
-                >
-                  <git-hub-icon size="1.2x" class="custom-class"></git-hub-icon>
+              </div>
+              <div v-if="pub.notebook">
+                <span v-if="previous" class="mx-1">/</span>
+                <a :href="pub.notebook">
+                  <span :set="previous=true">Colab Demo</span>
                 </a>
-                <a
-                  :href="pub.notebook"
-                  v-if="pub.notebook"
-                  class="block mr-3 hover:text-blue-800 flex items-center"
-                >
-                  <google-colab-icon size="1.25x"></google-colab-icon>
-                </a>
-                <a
-                  :href="pub.pdf"
-                  v-if="pub.pdf"
-                  class="block mr-3 hover:text-blue-800 flex items-center"
-                >
-                  <adobe-acrobat-reader-icon
-                    size="1.2x"
-                  ></adobe-acrobat-reader-icon>
+              </div>
+              <div v-if="pub.pdf">
+                <span v-if="previous" class="mx-1">/</span>
+                <a :href="pub.pdf">
+                  <span :set="previous=true">Paper</span>
                 </a>
               </div>
             </div>
           </div>
-          <div
-            class="border-b h-8 w-full"
-            v-if="pub_i != publications.length - 1"
-          ></div>
         </div>
       </div>
+
+      <div class="sm:px-0 px-5 my-16 max-w-3xl mx-auto">
+        <p class="text-2xl mb-4 font-medium">Project</p>
+        <div class="sm:flex" v-for="project in me.cluster.projects"
+          :key="project.title">
+          <div class="p-5 pl-0 w-1/4 flex flex-col justify-center">
+            <a :href="project.homepage || project.code">
+              <img
+                :src="project.img.startsWith('http') ? project.img : require('@/assets/image/' + project.img)"
+                class="object-contain" v-if="project.img" />
+            </a>
+          </div>
+          <div class="p-5 pr-0 w-3/4 flex flex-col justify-center">
+            <p class="font-bold">
+              <a :href="project.homepage || project.code"
+                v-if="project.homepage || project.code">
+                <span class="link">{{ project.title }}</span>
+              </a>
+              <span class="" v-else>{{ project.title }}</span>
+            </p>
+            <p class="mt-2">{{project.brief}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sm:px-0 px-5 my-16 max-w-3xl mx-auto">
+        <p class="text-2xl mb-4 font-medium">Review Experiences</p>
+        <p class="py-5">{{me.review_experiences}}</p>
+      </div>
+
     </div>
 
     <div class="">
@@ -236,7 +245,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
 
 <page-query>
 query {
@@ -249,20 +260,30 @@ query {
       github
       scholar
 			bio
+      interests
+      review_experiences
 			cluster {
 				publications {
 					title
-					authors,
-					proceeding,
-					proceeding_abbr,
-					year,
-					homepage,
-					code,
-          notebook,
-					pdf,
-					honor,
+					authors
+					proceeding
+					proceeding_abbr
+					year
+					homepage
+					code
+          notebook
+					pdf
+					honor
           img
+          brief
 				}
+        projects {
+          title
+          code
+          homepage
+          img
+          brief
+        }
 			}
 		}
 	}
