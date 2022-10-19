@@ -67,15 +67,15 @@
           {{ me.interests }}
         </p>
 
-        <div class="sm:flex" v-for="(pub, pub_i) in publications"
+        <div class="sm:flex py-5 sm:py-0" v-for="(pub, pub_i) in publications"
           :key="pub.title">
-          <div class="p-5 pl-0 w-1/4 flex flex-col justify-center">
+          <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center">
             <a :href="pub.homepage || pub.pdf">
               <img :src="require('@/assets/image/' + pub.img)"
                 class="object-contain" v-if="pub.img" />
             </a>
           </div>
-          <div class="p-5 pr-0 w-3/4 flex flex-col justify-center">
+          <div class="sm:p-5 py-2 sm:pr-0 pr-0 w-full sm:w-3/4 flex flex-col justify-center">
             <p class="font-bold">
               <a :href="pub.homepage || pub.code || pub.pdf"
                 v-if="pub.homepage || pub.code || pub.pdf">
@@ -145,16 +145,16 @@
 
       <div class="sm:px-0 px-5 my-16 max-w-3xl mx-auto">
         <p class="text-2xl mb-4 font-medium">Project</p>
-        <div class="sm:flex" v-for="project in me.cluster.projects"
+        <div class="sm:flex py-5 sm:py-0" v-for="project in me.cluster.projects"
           :key="project.title">
-          <div class="p-5 pl-0 w-1/4 flex flex-col justify-center">
+          <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center">
             <a :href="project.homepage || project.code">
               <img
                 :src="project.img.startsWith('http') ? project.img : require('@/assets/image/' + project.img)"
                 class="object-contain" v-if="project.img" />
             </a>
           </div>
-          <div class="p-5 pr-0 w-3/4 flex flex-col justify-center">
+          <div class="sm:p-5 py-2 sm:pr-0 pr-0 w-full sm:w-3/4 flex flex-col justify-center">
             <p class="font-bold">
               <a :href="project.homepage || project.code"
                 v-if="project.homepage || project.code">
