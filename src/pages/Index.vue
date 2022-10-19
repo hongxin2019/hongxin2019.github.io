@@ -17,7 +17,7 @@
           width="200" v-if="me.photo"
         /> -->
         <div class="w-40 mr-10">
-          <img class="rounded shadow-lg object-contain"
+          <img class="rounded shadow-lg "
             :src="require('@/assets/image/' + me.photo)" v-if="me.photo" />
         </div>
         <div class="">
@@ -72,7 +72,7 @@
           <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center">
             <a :href="pub.homepage || pub.pdf">
               <img :src="require('@/assets/image/' + pub.img)"
-                class="object-contain" v-if="pub.img" />
+                class="" v-if="pub.img" />
             </a>
           </div>
           <div class="sm:p-5 py-2 sm:pr-0 pr-0 w-full sm:w-3/4 flex flex-col justify-center">
@@ -147,11 +147,11 @@
         <p class="text-2xl mb-4 font-medium">Project</p>
         <div class="sm:flex py-5 sm:py-0" v-for="project in me.cluster.projects"
           :key="project.title">
-          <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center">
+          <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center scale-150">
             <a :href="project.homepage || project.code">
               <img
                 :src="project.img.startsWith('http') ? project.img : require('@/assets/image/' + project.img)"
-                class="object-contain" v-if="project.img" />
+                class="" v-if="project.img" />
             </a>
           </div>
           <div class="sm:p-5 py-2 sm:pr-0 pr-0 w-full sm:w-3/4 flex flex-col justify-center">
