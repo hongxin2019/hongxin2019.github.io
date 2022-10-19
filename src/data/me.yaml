@@ -127,6 +127,12 @@ me:
 
     projects:
 
+      - title: AIRFold
+        code: ""
+        homepage: "https://mp.weixin.qq.com/s/ROeZYKvVJm-EBbhnDKZR1w"
+        img: "cameo_airfold.png"
+        brief: "AIRFold ranked first in the CAMEO 3D structure prediction challenge for 4 weeks (2022.07.23-2022.08.20)."
+
       - title: DeepCodebase
         code: https://github.com/hughplay/DeepCodebase
         homepage: ""
@@ -138,9 +144,3 @@ me:
         homepage: "https://tacticalboard.github.io/"
         img: "https://tacticalboard.github.io/img/shuttle.8e785e8d.jpg"
         brief: "A tactical board on your device for badminton, soccer, and basketball."
-
-      - title: AIRFold
-        code: ""
-        homepage: "https://mp.weixin.qq.com/s/ROeZYKvVJm-EBbhnDKZR1w"
-        img: "cameo_airfold.png"
-        brief: "AIRFold ranked first in the CAMEO 3D structure prediction challenge for 4 weeks (2022.07.23-2022.08.20)."
