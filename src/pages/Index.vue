@@ -34,7 +34,7 @@
           <p class="mt-3 max-w-sm sm:max-w-md" v-html="me.bio" v-if="me.photo">
           </p>
           <p class="mt-5" v-html="me.bio" v-else></p>
-          <div v-if="me.email || me.github || me.scholar"
+          <div v-if="me.email || me.github || me.scholar || me.cv"
             class="mt-3 text-blue-900 flex" :set="me_prev=false">
             <p v-if="me.email">
               <a :href="'mailto:' + me.email" class="flex items-start"
@@ -52,6 +52,12 @@
             <p v-if="me.scholar">
               <a :href="me.scholar" class="flex items-start">
                 Google Scholar
+              </a>
+            </p>
+            <p v-if="me_prev" class="mx-1">/</p>
+            <p v-if="me.cv">
+              <a :href="me.cv" class="flex items-start">
+                CV
               </a>
             </p>
           </div>
@@ -259,6 +265,7 @@ query {
 			email
       github
       scholar
+      cv
 			bio
       interests
       review_experiences
