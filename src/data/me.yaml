@@ -9,7 +9,7 @@ me:
   cv: "/hongxin_cv.pdf"
   bio: >
     I am a Ph.D. candidate advised by
-    <a class="link" href="http://www.bigdatalab.ac.cn/~lanyanyan/">Yanyan Lan</a>
+    <a class="link" href="https://air.tsinghua.edu.cn/info/1046/1200.htm">Yanyan Lan</a>
     at the Institute of Computing Technology (ICT), Chinese Academy of
     Sciences. Currently, I work in the areas of computer vision and machine
     learning with focus on visual reasoning, and joint processing of
@@ -113,7 +113,7 @@ me:
         pdf:
         code:
         homepage:
-        img:
+        img: "tvr_illustration.png"
 
       - title: Visual Transformation Telling
         authors:
@@ -124,7 +124,7 @@ me:
         pdf:
         code:
         homepage:
-        img:
+        img: "vtt.png"
 
     projects:
 
