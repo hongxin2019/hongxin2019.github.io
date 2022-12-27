@@ -9,12 +9,22 @@ import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import VueViewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
+
 library.add(faGithub, faGoogle, faFilePdf, faHome);
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('font-awesome-icon', FontAwesomeIcon);
+  Vue.use(VueViewer, {
+    defaultOptions: {
+      title: false,
+      toolbar: false,
+      navbar: false
+    }
+  });
 
   head.meta.push({
     name: 'viewport',

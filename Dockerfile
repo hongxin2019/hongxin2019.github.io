@@ -13,8 +13,14 @@ RUN if [ $USER_NAME != "root" ] ; \
     then groupadd -f --gid ${GROUP_ID} ${USER_NAME} \
     && adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID ${USER_NAME} ; fi
 
+
+RUN yarn global add yrm
+
 USER ${USER_NAME}
 
+RUN yrm use taobao
+
+# https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported
 ENV NODE_OPTIONS --openssl-legacy-provider
 
 WORKDIR $WORKSPACE_DIR

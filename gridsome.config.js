@@ -19,12 +19,12 @@ module.exports = {
         id: 'UA-185361316-1',
       },
     },
-    {
-      use: 'gridsome-source-static-meta',
-      options: {
-        path: 'src/data/*.yaml',
-      },
-    },
+    // {
+    //   use: 'gridsome-source-static-meta',
+    //   options: {
+    //     path: 'src/data/*.yaml',
+    //   },
+    // },
   ],
   chainWebpack: config => {
     config.resolve.alias.set('@image', '@/assets/image');

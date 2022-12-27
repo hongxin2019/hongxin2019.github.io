@@ -1,147 +1,146 @@
-me:
-  name_cn: 洪鑫
-  name: Xin Hong
-  # image directory: src/assets/image
-  photo: hongxin.jpg
-  email: hongxin19b@ict.ac.cn
-  github: "https://github.com/hughplay"
-  scholar: "https://scholar.google.com/citations?user=gW-9WOQAAAAJ&hl=en"
-  cv: "/hongxin_cv.pdf"
-  bio: >
-    I am a Ph.D. candidate advised by
-    <a class="link" href="https://air.tsinghua.edu.cn/info/1046/1200.htm">Yanyan Lan</a>
-    at the Institute of Computing Technology (ICT), Chinese Academy of
-    Sciences. Currently, I work in the areas of computer vision and machine
-    learning with focus on visual reasoning, and joint processing of
-    text and image data.
-  interests: >
-    I'm interested in computer vision and machine learning. Recently, I also try to apply machine learning techniques into biology problemcs, such as protein structure prediction.
-  review_experiences: CVPR, ICCV, ECCV, AAAI, IJCV, JSTSP, Neural Computing and Applications.
+name_cn: 洪鑫
+name: Xin Hong
+# image directory: src/assets/image
+photo: hongxin.jpg
+email: hongxin19b@ict.ac.cn
+github: "https://github.com/hughplay"
+scholar: "https://scholar.google.com/citations?user=gW-9WOQAAAAJ&hl=en"
+cv: "/hongxin_cv.pdf"
+bio: >
+  I am a Ph.D. candidate advised by
+  <a class="link" href="https://air.tsinghua.edu.cn/info/1046/1200.htm">Yanyan Lan</a>
+  at the Institute of Computing Technology (ICT), Chinese Academy of
+  Sciences. Currently, I work in the areas of computer vision and machine
+  learning with focus on visual reasoning, and joint processing of
+  text and image data.
+interests: >
+  I'm interested in computer vision and machine learning. Recently, I also try to apply machine learning techniques into biology problemcs, such as protein structure prediction.
+review_experiences: CVPR, ICCV, ECCV, AAAI, IJCV, JSTSP, Neural Computing and Applications.
 
-  # Arrays of objects must include all possible keys in the first object
-  # static/pdf/*.pdf => /pdf/*.pdf
-  cluster:
-    publications:
-      - title: Deep Fusion Network for Image Completion
-        authors: ["Xin Hong", "Pengfei Xiong", "Renhe Ji", "Haoqiang Fan"]
-        proceeding: ACM International Conference on Multimedia
-        proceeding_abbr: ACMMM
-        year: 2019
-        pdf: /pdf/mm-2019-dfnet.pdf
-        code: https://github.com/hughplay/DFNet
-        notebook: "https://colab.research.google.com/github/hughplay/DFNet/blob/master/demo.ipynb"
-        homepage: ""
-        honor: ""
-        img: "fusion-block.png"
-        brief: ""
+# Arrays of objects must include all possible keys in the first object
+# static/pdf/*.pdf => /pdf/*.pdf
+cluster:
+  publications:
+    - title: Deep Fusion Network for Image Completion
+      authors: ["Xin Hong", "Pengfei Xiong", "Renhe Ji", "Haoqiang Fan"]
+      proceeding: ACM International Conference on Multimedia
+      proceeding_abbr: ACMMM
+      year: 2019
+      pdf: /pdf/mm-2019-dfnet.pdf
+      code: https://github.com/hughplay/DFNet
+      notebook: "https://colab.research.google.com/github/hughplay/DFNet/blob/master/demo.ipynb"
+      homepage: ""
+      honor: ""
+      img: "fusion-block.png"
+      brief: ""
 
-      - title: Attention-driven Factor Model for Explainable Personalized Recommendation
-        authors:
-          - "Jingwu Chen"
-          - "Fuzhen Zhuang"
-          - "Xin Hong"
-          - "Xiang Ao"
-          - "Xing Xie"
-          - "Qing He"
-        proceeding: ACM SIGIR Conference on Research and Development in Information Retrieval
-        proceeding_abbr: SIGIR
-        year: 2018
-        pdf: /pdf/sigir-2018-afm.pdf
-        img: "afm.png"
+    - title: Attention-driven Factor Model for Explainable Personalized Recommendation
+      authors:
+        - "Jingwu Chen"
+        - "Fuzhen Zhuang"
+        - "Xin Hong"
+        - "Xiang Ao"
+        - "Xing Xie"
+        - "Qing He"
+      proceeding: ACM SIGIR Conference on Research and Development in Information Retrieval
+      proceeding_abbr: SIGIR
+      year: 2018
+      pdf: /pdf/sigir-2018-afm.pdf
+      img: "afm.png"
 
-      - title: Transformation Driven Visual Reasoning
-        authors:
-          ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
-        proceeding: The IEEE Conference on Computer Vision and Pattern Recognition
-        proceeding_abbr: "CVPR"
-        year: 2021
-        pdf: "https://arxiv.org/pdf/2011.13160.pdf"
-        code: https://github.com/hughplay/TVR
-        homepage: "https://hongxin2019.github.io/TVR"
-        img: "tvr.png"
+    - title: Transformation Driven Visual Reasoning
+      authors:
+        ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
+      proceeding: The IEEE Conference on Computer Vision and Pattern Recognition
+      proceeding_abbr: "CVPR"
+      year: 2021
+      pdf: "https://arxiv.org/pdf/2011.13160.pdf"
+      code: https://github.com/hughplay/TVR
+      homepage: "https://hongxin2019.github.io/TVR"
+      img: "tvr.png"
 
-      - title: "WenLan: Bridging Vision and Language by Large-Scale Multi-Modal Pre-Training"
-        authors:
-          [
-            Yuqi Huo,
-            Manli Zhang,
-            Guangzhen Liu,
-            Haoyu Lu,
-            Yizhao Gao,
-            Guoxing Yang,
-            Jingyuan Wen,
-            Heng Zhang,
-            Baogui Xu,
-            Weihao Zheng,
-            Zongzheng Xi,
-            Yueqian Yang,
-            Anwen Hu,
-            Jinming Zhao,
-            Ruichen Li,
-            Yida Zhao,
-            Liang Zhang,
-            Yuqing Song,
-            Xin Hong,
-            Wanqing Cui,
-            Danyang Hou,
-            Yingyan Li,
-            Junyi Li,
-            Peiyu Liu,
-            Zheng Gong,
-            Chuhao Jin,
-            Yuchong Sun,
-            Shizhe Chen,
-            Zhiwu Lu,
-            Zhicheng Dou,
-            Qin Jin,
-            Yanyan Lan,
-            Wayne Xin Zhao,
-            Ruihua Song,
-            Ji-Rong Wen,
-          ]
-        proceeding: Tec Report
-        img: "brivl.png"
-        year: 2021
-        pdf: https://arxiv.org/pdf/2103.06561.pdf
+    - title: "WenLan: Bridging Vision and Language by Large-Scale Multi-Modal Pre-Training"
+      authors:
+        [
+          Yuqi Huo,
+          Manli Zhang,
+          Guangzhen Liu,
+          Haoyu Lu,
+          Yizhao Gao,
+          Guoxing Yang,
+          Jingyuan Wen,
+          Heng Zhang,
+          Baogui Xu,
+          Weihao Zheng,
+          Zongzheng Xi,
+          Yueqian Yang,
+          Anwen Hu,
+          Jinming Zhao,
+          Ruichen Li,
+          Yida Zhao,
+          Liang Zhang,
+          Yuqing Song,
+          Xin Hong,
+          Wanqing Cui,
+          Danyang Hou,
+          Yingyan Li,
+          Junyi Li,
+          Peiyu Liu,
+          Zheng Gong,
+          Chuhao Jin,
+          Yuchong Sun,
+          Shizhe Chen,
+          Zhiwu Lu,
+          Zhicheng Dou,
+          Qin Jin,
+          Yanyan Lan,
+          Wayne Xin Zhao,
+          Ruihua Song,
+          Ji-Rong Wen,
+        ]
+      proceeding: Tec Report
+      img: "brivl.png"
+      year: 2021
+      pdf: https://arxiv.org/pdf/2103.06561.pdf
 
-      - title: "Visual Reasoning: from State to Transformation"
-        authors:
-          ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
-        proceeding: under review
-        proceeding_abbr:
-        year: 2022
-        pdf:
-        code:
-        homepage:
-        img: "tvr_illustration.png"
+    - title: "Visual Reasoning: from State to Transformation"
+      authors:
+        ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
+      proceeding: under review
+      proceeding_abbr:
+      year: 2022
+      pdf:
+      code:
+      homepage:
+      img: "tvr_illustration.png"
 
-      - title: Visual Transformation Telling
-        authors:
-          ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
-        proceeding: under review
-        proceeding_abbr:
-        year: 2022
-        pdf:
-        code:
-        homepage:
-        img: "vtt.png"
+    - title: Visual Transformation Telling
+      authors:
+        ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
+      proceeding: under review
+      proceeding_abbr:
+      year: 2022
+      pdf:
+      code:
+      homepage:
+      img: "vtt.png"
 
-    projects:
+  projects:
 
-      - title: AIRFold
-        code: ""
-        homepage: "https://mp.weixin.qq.com/s/ROeZYKvVJm-EBbhnDKZR1w"
-        img: "cameo_airfold.png"
-        brief: "AIRFold ranked first in the CAMEO 3D structure prediction challenge for 4 weeks (2022.07.23-2022.08.20)."
+    - title: AIRFold
+      code: ""
+      homepage: "https://mp.weixin.qq.com/s/ROeZYKvVJm-EBbhnDKZR1w"
+      img: "cameo_airfold.png"
+      brief: "AIRFold ranked first in the CAMEO 3D structure prediction challenge for 4 weeks (2022.07.23-2022.08.20)."
 
-      - title: DeepCodebase
-        code: https://github.com/hughplay/DeepCodebase
-        homepage: ""
-        img: "https://github.com/hughplay/DeepCodebase/raw/master/docs/_static/imgs/deepcodebase_overview.png"
-        brief: "DeepCodebase is a codebase / template for deep learning researchers, so that do experiments and releasing codes become easier."
+    - title: DeepCodebase
+      code: https://github.com/hughplay/DeepCodebase
+      homepage: ""
+      img: "deepcodebase_overview.png"
+      brief: "DeepCodebase is a codebase / template for deep learning researchers, so that do experiments and releasing codes become easier."
 
-      - title: Tactic Board
-        code: https://github.com/hughplay/DeepCodebase
-        homepage: "https://tacticalboard.github.io/"
-        img: "https://tacticalboard.github.io/img/shuttle.8e785e8d.jpg"
-        brief: "A tactical board on your device for badminton, soccer, and basketball."
+    - title: Tactic Board
+      code: https://github.com/hughplay/DeepCodebase
+      homepage: "https://tacticalboard.github.io/"
+      img: "https://tacticalboard.github.io/img/shuttle.8e785e8d.jpg"
+      brief: "A tactical board on your device for badminton, soccer, and basketball."

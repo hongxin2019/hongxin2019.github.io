@@ -33,3 +33,43 @@ Deploy:
 ```
 docker run -it --rm -v "$HOME/.ssh":"/home/$(whoami)/.ssh" -v "$HOME/.gitconfig":"/home/$(whoami)/.gitconfig" -v "$PWD":/workspace blog yarn deploy
 ```
+
+Interactive shell:
+
+```
+docker run -it --rm -v "$PWD":/workspace blog /bin/bash
+```
+
+## Play with host machine
+
+Add the following line to `~/.bashrc` / `~/.zshrc`:
+
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
+Then run:
+
+``` sh
+. ~/.bashrc
+# or
+. ~/.zshrc
+```
+
+Install dependencies:
+
+```
+yarn
+```
+
+Develop:
+
+```
+yarn develop
+```
+
+Deploy:
+
+```
+yarn deploy
+```

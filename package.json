@@ -18,10 +18,12 @@
     "@gridsome/plugin-google-analytics": "^0.1.2",
     "gh-pages": "^2.2.0",
     "gridsome": "^0.7.13",
-    "gridsome-source-static-meta": "^1.0.1",
+    "img-vuer": "^0.19.3",
+    "v-viewer": "^1.6.4",
     "vue-simple-icons": "^4.7.0"
   },
   "devDependencies": {
-    "gridsome-plugin-tailwindcss": "^2.2.36"
+    "gridsome-plugin-tailwindcss": "^2.2.36",
+    "js-yaml": "^4.1.0"
   }
 }

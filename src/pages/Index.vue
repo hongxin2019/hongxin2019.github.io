@@ -17,7 +17,7 @@
           width="200" v-if="me.photo"
         /> -->
         <div class="w-40 mr-10">
-          <img class="rounded shadow-lg "
+          <img class="rounded shadow-lg"
             :src="require('@/assets/image/' + me.photo)" v-if="me.photo" />
         </div>
         <div class="">
@@ -35,16 +35,17 @@
           </p>
           <p class="mt-5" v-html="me.bio" v-else></p>
           <div v-if="me.email || me.github || me.scholar || me.cv"
-            class="mt-3 text-blue-900 flex" :set="me_prev=false">
+            class="mt-3 text-blue-900 flex" :set="(me_prev = false)">
             <p v-if="me.email">
               <a :href="'mailto:' + me.email" class="flex items-start"
-                :set="me_prev=true">
+                :set="(me_prev = true)">
                 Email
               </a>
             </p>
             <p v-if="me_prev" class="mx-1">/</p>
             <p v-if="me.github">
-              <a :href="me.github" class="flex items-start" :set="me_prev=true">
+              <a :href="me.github" class="flex items-start"
+                :set="(me_prev = true)">
                 Github
               </a>
             </p>
@@ -56,16 +57,14 @@
             </p>
             <p v-if="me_prev" class="mx-1">/</p>
             <p v-if="me.cv">
-              <a :href="me.cv" class="flex items-start">
-                CV
-              </a>
+              <a :href="me.cv" class="flex items-start"> CV </a>
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="border-b border-gray-300">
+    <div class="border-b border-gray-300" v-viewer>
       <div class="sm:px-0 px-5 my-16 max-w-3xl mx-auto">
         <p class="text-2xl mb-8 font-medium">Research</p>
 
@@ -73,15 +72,29 @@
           {{ me.interests }}
         </p>
 
-        <div class="sm:flex py-5 sm:py-0" v-for="(pub, pub_i) in publications"
+        <div class="sm:flex py-5 sm:py-0" v-for="pub in publications"
           :key="pub.title">
-          <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center">
-            <a :href="pub.homepage || pub.pdf">
-              <img :src="require('@/assets/image/' + pub.img)"
-                class="" v-if="pub.img" />
-            </a>
+          <div class="
+              sm:p-5 sm:pl-0
+              pl-0
+              w-full
+              sm:w-1/4
+              flex flex-col
+              justify-center
+            ">
+            <img class="" :src="require('@/assets/image/' + pub.img)"
+              v-if="pub.img" />
           </div>
-          <div class="sm:p-5 py-2 sm:pr-0 pr-0 w-full sm:w-3/4 flex flex-col justify-center">
+          <div class="
+              sm:p-5
+              py-2
+              sm:pr-0
+              pr-0
+              w-full
+              sm:w-3/4
+              flex flex-col
+              justify-center
+            ">
             <p class="font-bold">
               <a :href="pub.homepage || pub.code || pub.pdf"
                 v-if="pub.homepage || pub.code || pub.pdf">
@@ -93,8 +106,7 @@
               <p class="">
                 <span v-for="(author, index) in pub.authors" :key="author">
                   <span class="font-bold"
-                    v-if="author == $page.metadata.me.name">{{ author
-                    }}</span>
+                    v-if="author == $page.metadata.me.name">{{ author }}</span>
                   <span v-else>{{ author }}</span>
                   <span v-if="index != pub.authors.length - 1">, </span>
                 </span>
@@ -110,38 +122,36 @@
                     ><span>, {{ pub.year }}</span>
                   </span> -->
                 <span class="italic">
-                  <span v-if="pub.proceeding_abbr">{{
-                  pub.proceeding_abbr
-                  }}</span>
+                  <span
+                    v-if="pub.proceeding_abbr">{{ pub.proceeding_abbr }}</span>
                   <span v-else>{{ pub.proceeding }}</span>
                 </span>
                 <span>, {{ pub.year }}</span>
-                <span class="font-bold" v-if="pub.honor">,{{ pub.honor
-                }}</span>
+                <span class="font-bold" v-if="pub.honor">,{{ pub.honor }}</span>
               </p>
             </div>
-            <div class="flex items-center" :set="previous=false">
+            <div class="flex items-center" :set="(previous = false)">
               <div v-if="pub.homepage">
                 <a :href="pub.homepage">
-                  <span :set="previous=true">Project Page</span>
+                  <span :set="(previous = true)">Project Page</span>
                 </a>
               </div>
               <div v-if="pub.code">
                 <span v-if="previous" class="mx-1">/</span>
                 <a :href="pub.code">
-                  <span :set="previous=true">Code</span>
+                  <span :set="(previous = true)">Code</span>
                 </a>
               </div>
               <div v-if="pub.notebook">
                 <span v-if="previous" class="mx-1">/</span>
                 <a :href="pub.notebook">
-                  <span :set="previous=true">Colab Demo</span>
+                  <span :set="(previous = true)">Colab Demo</span>
                 </a>
               </div>
               <div v-if="pub.pdf">
                 <span v-if="previous" class="mx-1">/</span>
                 <a :href="pub.pdf">
-                  <span :set="previous=true">Paper</span>
+                  <span :set="(previous = true)">Paper</span>
                 </a>
               </div>
             </div>
@@ -153,14 +163,29 @@
         <p class="text-2xl mb-4 font-medium">Project</p>
         <div class="sm:flex py-5 sm:py-0" v-for="project in me.cluster.projects"
           :key="project.title">
-          <div class="sm:p-5 sm:pl-0 pl-0 w-full sm:w-1/4 flex flex-col justify-center scale-150">
-            <a :href="project.homepage || project.code">
-              <img
-                :src="project.img.startsWith('http') ? project.img : require('@/assets/image/' + project.img)"
-                class="" v-if="project.img" />
-            </a>
+          <div class="
+              sm:p-5 sm:pl-0
+              pl-0
+              w-full
+              sm:w-1/4
+              flex flex-col
+              justify-center
+              scale-150
+            ">
+            <img
+              :src="project.img.startsWith('http') ? project.img : require('@/assets/image/' + project.img)"
+              class="" v-if="project.img" />
           </div>
-          <div class="sm:p-5 py-2 sm:pr-0 pr-0 w-full sm:w-3/4 flex flex-col justify-center">
+          <div class="
+              sm:p-5
+              py-2
+              sm:pr-0
+              pr-0
+              w-full
+              sm:w-3/4
+              flex flex-col
+              justify-center
+            ">
             <p class="font-bold">
               <a :href="project.homepage || project.code"
                 v-if="project.homepage || project.code">
@@ -168,16 +193,15 @@
               </a>
               <span class="" v-else>{{ project.title }}</span>
             </p>
-            <p class="mt-2">{{project.brief}}</p>
+            <p class="mt-2">{{ project.brief }}</p>
           </div>
         </div>
       </div>
 
       <div class="sm:px-0 px-5 my-16 max-w-3xl mx-auto">
         <p class="text-2xl mb-4 font-medium">Review Experiences</p>
-        <p class="py-5">{{me.review_experiences}}</p>
+        <p class="py-5">{{ me.review_experiences }}</p>
       </div>
-
     </div>
 
     <div class="">
