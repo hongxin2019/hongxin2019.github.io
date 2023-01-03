@@ -18,7 +18,6 @@
     "@gridsome/plugin-google-analytics": "^0.1.2",
     "gh-pages": "^2.2.0",
     "gridsome": "^0.7.13",
-    "img-vuer": "^0.19.3",
     "v-viewer": "^1.6.4",
     "vue-simple-icons": "^4.7.0"
   },
