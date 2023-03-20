@@ -1,4 +1,4 @@
-From node:lts
+FROM node:lts
 
 RUN apt-get update \
    && apt-get install -qqy --no-install-recommends libvips-dev \
