@@ -106,9 +106,9 @@ cluster:
     - title: "Visual Reasoning: from State to Transformation"
       authors:
         ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
-      proceeding: under review
-      proceeding_abbr:
-      year: 2022
+      proceeding: Transactions on Pattern Analysis and Machine Intelligence
+      proceeding_abbr: TPAMI
+      year: 2023
       pdf:
       code:
       homepage:
@@ -119,7 +119,7 @@ cluster:
         ["Xin Hong", "Yanyan Lan", "Liang Pang", "Jiafeng Guo", "Xueqi Cheng"]
       proceeding: under review
       proceeding_abbr:
-      year: 2022
+      year: 2023
       pdf:
       code:
       homepage:

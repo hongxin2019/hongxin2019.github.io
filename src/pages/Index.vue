@@ -122,8 +122,8 @@
                     ><span>, {{ pub.year }}</span>
                   </span> -->
                 <span class="italic">
-                  <span
-                    v-if="pub.proceeding_abbr">{{ pub.proceeding_abbr }}</span>
+                  <span v-if="pub.proceeding_abbr">{{ pub.proceeding_abbr
+}}</span>
                   <span v-else>{{ pub.proceeding }}</span>
                 </span>
                 <span>, {{ pub.year }}</span>
@@ -214,20 +214,27 @@
 
 <script>
 import ButtonLink from "../components/ButtonLink";
-import {
-  GoogleColabIcon,
-  GitHubIcon,
-  GoogleScholarIcon,
-  AdobeAcrobatReaderIcon,
-} from "vue-simple-icons";
+import 'viewerjs/dist/viewer.css';
+import { directive as viewer } from "v-viewer";
+// import {
+//   GoogleColabIcon,
+//   GitHubIcon,
+//   GoogleScholarIcon,
+//   AdobeAcrobatReaderIcon,
+// } from "vue-simple-icons";
 
 export default {
+  directives: {
+    viewer: viewer({
+      debug: true,
+    }),
+  },
   components: {
     "a-btn": ButtonLink,
-    GoogleColabIcon,
-    GitHubIcon,
-    GoogleScholarIcon,
-    AdobeAcrobatReaderIcon,
+    // GoogleColabIcon,
+    // GitHubIcon,
+    // GoogleScholarIcon,
+    // AdobeAcrobatReaderIcon,
   },
   metaInfo() {
     return {
