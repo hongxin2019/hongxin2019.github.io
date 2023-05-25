@@ -109,7 +109,7 @@ cluster:
       proceeding: Transactions on Pattern Analysis and Machine Intelligence
       proceeding_abbr: TPAMI
       year: 2023
-      pdf:
+      pdf: https://arxiv.org/pdf/2305.01668.pdf
       code:
       homepage:
       img: "tvr_illustration.png"
@@ -120,7 +120,7 @@ cluster:
       proceeding: under review
       proceeding_abbr:
       year: 2023
-      pdf:
+      pdf: https://arxiv.org/pdf/2305.01928.pdf
       code:
       homepage:
       img: "vtt.png"
