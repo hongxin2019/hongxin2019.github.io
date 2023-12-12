@@ -198,11 +198,9 @@ publications:
   links:
   - name: Paper
     link: https://arxiv.org/pdf/2103.06561.pdf
-  - name: Code
-    link: null
   highlights:
-  - name: ''
-    link: null
+  - name: ""
+    link: 
 
 - title: Deep Fusion Network for Image Completion
   topic:
