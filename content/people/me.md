@@ -33,7 +33,7 @@ publications:
     link:
   links:
   - name: Thesis (in Chinese)
-    link: https://drive.google.com/file/d/1C5kcwnYkDewcJ6qxv_FCIBLQR37YKaZX/view?usp=sharing
+    link: https://drive.google.com/file/d/1MoFfITNof1XQ7cfhzrhbg1jRdXgKM_ee/view?usp=sharing
   - name: Slides (in Chinese)
     link: https://drive.google.com/file/d/1CCVCDQqF9949lrU2ox7j8cicKtrxnSqE/view?usp=sharing
 
