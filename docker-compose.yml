@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  gridsome:
+  project:
     container_name: ${PROJECT}_${USER_NAME}
     build:
       context: docker/
@@ -12,9 +12,6 @@ services:
     image: ${PROJECT}:${USER_NAME}
     environment:
       - TZ=Asia/Shanghai
-      - TORCH_HOME=/data/torch_model
-      - TRANSFORMERS_CACHE=/data/pretrain/transformers
-      - CLIP_CACHE=/data/pretrain/clip
 
     # change hostname to docker
     hostname: docker
@@ -28,7 +25,7 @@ services:
     # Use the host's network stack inside the container.
     # (directly mapping ports in container to host)
     # https://docs.docker.com/engine/reference/run/#network-settings
-    # network_mode: host
+    network_mode: host
 
     working_dir: /project
 
@@ -50,6 +47,3 @@ services:
       - type: bind
         source: ${CONTAINER_HOME}
         target: ${TARGET_HOME}
-
-    ports:
-      - 8080:8080

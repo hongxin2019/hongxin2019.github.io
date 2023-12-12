@@ -97,7 +97,7 @@ def main():
     parser.add_argument("action", nargs="?", default="enter")
     parser.add_argument("-b", "--build", action="store_true", default=False)
     parser.add_argument("--root", action="store_true", default=False)
-    parser.add_argument("--service", default="gridsome")
+    parser.add_argument("--service", default="project")
 
     args = parser.parse_args()
 
@@ -119,6 +119,7 @@ def main():
             command = f"docker-compose exec {args.service} {SHELL}"
     else:
         command = f"docker-compose {args.action}"
+    command = "DOCKER_BUILDKIT=1 " + command
     print(f"> {command}\n")
     execute(command)
 
@@ -195,7 +196,7 @@ def _set_env(env_path=DEFAULT_ENV_PATH, verbose=False):
                 container_home.mkdir(parents=True, exist_ok=True)
         e["CONTAINER_HOME"] = str(container_home)
         if e["USER_NAME"] != "root":
-            e["TARGET_HOME"] = f"/home/{e['USER_NAME']}" 
+            e["TARGET_HOME"] = f"/home/{e['USER_NAME']}"
         else:
             e["TARGET_HOME"] = "/root"
 

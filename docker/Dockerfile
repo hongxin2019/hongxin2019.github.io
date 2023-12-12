@@ -1,19 +1,7 @@
-# dockerlab template: runtime_node_lts (full)
+# dockerlab template: workspace_node_18
 # https://github.com/hughplay/dockerlab
 
-FROM node:lts
-
-RUN apt-get update \
-   && apt-get install -qqy --no-install-recommends \
-   libvips-dev \
-   rsync \
-   sudo \
-   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN yarn global add yrm
-
-# --------------------------------------------------------------------------------
-# FROM deepbase/dockerlab:runtime_node_lts
+FROM deepbase/dockerlab:workspace_node_18
 
 
 # ==================================================
@@ -21,8 +9,9 @@ RUN yarn global add yrm
 # ==================================================
 
 
-# Use taobao mirror
-# RUN yrm use taobao
+# Use taobao mirror and update npm and yarn
+RUN yrm use taobao \
+    && npm install -g npm@latest yarn@latest
 
 
 # https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported
@@ -58,7 +47,7 @@ RUN /usr/local/bin/init_workspace --user ${USER_NAME} --home /home/${USER_NAME}
 
 
 # backup $HOME for reverse mounting $HOME
-RUN rsync -a ${HOME}/ /${USER_NAME}_home_bak
+RUN rsync -a /home/${USER_NAME}/ /${USER_NAME}_home_bak
 
 
 # Switch to the created user
