@@ -6,6 +6,9 @@
 init:
 	python docker.py startd --build
 
+up:
+	python docker.py start
+
 # run on host
 in:
 	python docker.py
@@ -15,6 +18,9 @@ fix_sharp:
 
 dev:
 	yarn develop
+
+deploy:
+	yarn deploy
 
 copy_git:
 	cp ~/.gitconfig $(CONTAINER_HOME)/ && cp -r ~/.ssh $(CONTAINER_HOME)/

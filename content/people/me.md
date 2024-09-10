@@ -23,6 +23,62 @@ links:
       link: /pdf/hongxin_cv.pdf
 
 publications:
+- title: Pre-training with Fractional Denoising to Enhance Molecular Property Prediction
+  topic:
+  - AI4Science
+  figure: /image/frad.png
+  selected: true
+  authors:
+  - name: Yuyan Ni*
+    link: https://nyyxxx.github.io/
+  - name: Shikun Feng*
+    link: https://github.com/fengshikun
+  - name: Xin Hong
+    link: https://hongxin2019.github.io/
+  - name: Yuancheng Sun
+    link:
+  - name: Wei-Ying Ma
+    link: https://scholar.google.com/citations?user=SToCbu8AAAAJ&hl=en
+  - name: Zhi-Ming Ma
+    link:
+  - name: Qiwei Ye
+    link:
+  - name: Yanyan Lan
+    link: https://yanyanlan.com
+  venue:
+    name: Nature Machine Intelligence
+    year: 2024
+    link:
+  links:
+  - name: Paper
+    link: https://arxiv.org/pdf/2407.11086
+
+- title: Visual Transformation Telling
+  topic:
+  - Visual Reasoning
+  figure: /image/vtt.png
+  selected: true
+  authors:
+  - name: Wanqing Cui*
+    link: 
+  - name: Xin Hong*
+    link: https://hongxin2019.github.io/
+  - name: Yanyan Lan
+    link: https://yanyanlan.com
+  - name: Liang Pang
+    link: https://pl8787.github.io/
+  - name: Jiafeng Guo
+    link: http://www.bigdatalab.ac.cn/gjf/
+  - name: Xueqi Cheng
+    link: 
+  venue:
+    name: arXiv
+    year: 2024
+    link:
+  links:
+  - name: Paper
+    link: https://arxiv.org/pdf/2305.01928.pdf
+
 - title: Visual Transformation Reasoning
   topic:
   - Visual Reasoning
@@ -36,30 +92,6 @@ publications:
     link: https://drive.google.com/file/d/1MoFfITNof1XQ7cfhzrhbg1jRdXgKM_ee/view?usp=sharing
   - name: Slides (in Chinese)
     link: https://drive.google.com/file/d/1CCVCDQqF9949lrU2ox7j8cicKtrxnSqE/view?usp=sharing
-
-- title: Visual Transformation Telling
-  topic:
-  - Visual Reasoning
-  figure: /image/vtt.png
-  selected: true
-  authors:
-  - name: Xin Hong
-    link: https://hongxin2019.github.io/
-  - name: Yanyan Lan
-    link: https://yanyanlan.com
-  - name: Liang Pang
-    link: https://pl8787.github.io/
-  - name: Jiafeng Guo
-    link: http://www.bigdatalab.ac.cn/gjf/
-  - name: Xueqi Cheng
-    link: 
-  venue:
-    name: arXiv
-    year: 2023
-    link:
-  links:
-  - name: Paper
-    link: https://arxiv.org/pdf/2305.01928.pdf
 
 - title: 'Visual Reasoning: from State to Transformation'
   topic:
@@ -259,11 +291,51 @@ publications:
     link: ""
 
 projects:
+- title: Drug The Whole Genome
+  figure: "/image/screening.png"
+  authors:
+    - name: Yinjun Jia*
+      link: https://www.semanticscholar.org/author/Yinjun-Jia/145105686
+    - name: Bowen Gao*
+      link: https://bowen-gao.github.io/
+    - name: Jiaxin Tan*
+      link: 
+    - name: Xin Hong*
+      link: https://hongxin2019.github.io/
+    - name: Wenyu Zhu
+      link:
+    - name: Haichuan Tan
+      link: https://github.com/thchuan2001
+    - name: Yuan Xiao
+      link:
+    - name: Yanwen Huang
+      link:
+    - name: Yue Jin
+      link:
+    - name: Yafei Yuan
+      link:
+    - name: Jiekang Tian
+      link:
+    - name: Weiying Ma
+      link:
+    - name: Yaqin Zhang
+      link:
+    - name: Chuangye Ye
+      link:
+    - name: Wei Zhang
+      link:
+    - name: Yanyan Lan
+      link: "https://yanyanlan.com"
+  links:
+    - name: Project Page
+      link: https://drug-the-whole-genome.yanyanlan.com/
 - title: AIRFold
   figure: "/image/7TVI.png"
   authors:
     - name: Xin Hong
       link: https://bowen-gao.github.io/
+    - name: Hongliang Li
+      link: 
     - name: Jingjing Gong
       link: https://scholar.google.com/citations?user=MayCLqYAAAAJ&hl=en
     - name: Yuxuan Song

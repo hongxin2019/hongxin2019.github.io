@@ -1,7 +1,7 @@
 """Run experiments in the docker container. Quick Start:
 
-# Step 1. Install docker-compose in your workspace.
-pip install docker-compose
+# Step 1. Install docker compose in your workspace.
+pip install docker compose
 # Step 2. Build docker image and start docker container once.
 python docker.py startd --build
 # Step 3. Enter the docker container at any time, start experiments now.
@@ -106,7 +106,7 @@ def main():
     SHELL = "zsh" if args.service == "project" else "bash"
 
     if args.action == "start" or args.action == "startd":
-        command = "docker-compose up"
+        command = "docker compose up"
         if args.action == "startd":
             command += " -d"
         if args.build:
@@ -114,11 +114,11 @@ def main():
         command += f" {args.service}"
     elif args.action == "enter":
         if args.root:
-            command = f"docker-compose exec -u root {args.service} {SHELL}"
+            command = f"docker compose exec -u root {args.service} {SHELL}"
         else:
-            command = f"docker-compose exec {args.service} {SHELL}"
+            command = f"docker compose exec {args.service} {SHELL}"
     else:
-        command = f"docker-compose {args.action}"
+        command = f"docker compose {args.action}"
     command = "DOCKER_BUILDKIT=1 " + command
     print(f"> {command}\n")
     execute(command)

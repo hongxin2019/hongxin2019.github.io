@@ -35,7 +35,7 @@ services:
       "sudo rsync -a --stats --chown=${USER_NAME}:${USER_NAME} --ignore-existing
       /${USER_NAME}_home_bak/ ${TARGET_HOME}
       && . ${TARGET_HOME}/.bashrc
-      && sleep infinity"
+      && make dev"
 
     # mount the <directory in host> to the <directory in container>
     # add more mounts here if you need

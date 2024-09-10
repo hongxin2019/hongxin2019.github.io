@@ -10,7 +10,7 @@ FROM deepbase/dockerlab:workspace_node_18
 
 
 # Use taobao mirror and update npm and yarn
-RUN yrm use taobao \
+RUN npm config set registry https://registry.npmmirror.com \
     && npm install -g npm@latest yarn@latest
 
 
@@ -44,7 +44,6 @@ RUN if [ $USER_NAME != "root" ] ; \
 COPY misc/init_workspace /usr/local/bin
 RUN chmod +x /usr/local/bin/init_workspace
 RUN /usr/local/bin/init_workspace --user ${USER_NAME} --home /home/${USER_NAME}
-
 
 # backup $HOME for reverse mounting $HOME
 RUN rsync -a /home/${USER_NAME}/ /${USER_NAME}_home_bak

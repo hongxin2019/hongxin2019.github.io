@@ -1,35 +1,24 @@
 <template>
   <Layout>
     <!-- Header -->
-    <div id="banner" class="h-12 w-full text-lg fixed top-0 shadow">
+    <div id="banner" class="h-12 py-8 w-full text-xl fixed top-0">
       <div
-        class="md:max-w-5xl px-4 flex justify-between mx-auto items-center h-full"
-      >
-        <div class="font-bold">{{ $page.people.name }}</div>
+        class="md:max-w-5xl px-4 flex justify-between mx-auto items-center h-full">
+        <div class="font-bold cursor-pointer" @click="scroll_to('info')">{{ $page.people.name }}</div>
         <div class="flex gap-2 md:gap-8">
-          <a class="text-base cursor-pointer" @click="scroll_to('info')"
-            >Home</a
-          >
-          <!-- <a
-            class="text-white text-base cursor-pointer"
-            @click="scroll_to('group')"
-            >Group</a
-          > -->
-          <a class="text-base cursor-pointer" @click="scroll_to('publications')"
-            >Publications</a
-          >
-          <a class="text-base cursor-pointer" @click="scroll_to('projects')"
-            >Projects</a
-          >
+          <span class="text-base hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            @click="scroll_to('info')">Home</span>
+          <span class="text-base hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            @click="scroll_to('publications')">Publications</span>
+          <span class="text-base hover:bg-gray-100 rounded-lg p-2 cursor-pointer"
+            @click="scroll_to('projects')">Projects</span>
         </div>
       </div>
     </div>
 
     <!-- Basic Information -->
-    <div
-      id="info"
-      class="max-w-5xl mx-auto text-base mt-16 pt-4 px-4 flex flex-wrap gap-4 md:gap-16 h-full"
-    >
+    <div id="info"
+      class="max-w-5xl mx-auto text-base mt-16 pt-4 px-4 flex flex-wrap gap-4 md:gap-16 h-full">
       <!-- Photo -->
       <div>
         <img :src="$page.people.photo" class="w-48" />
@@ -50,11 +39,8 @@
         </div>
         <!-- links -->
         <div class="mt-4 flex">
-          <div
-            class="flex"
-            v-for="(link, i) in $page.people.links"
-            :key="'link' + i"
-          >
+          <div class="flex" v-for="(link, i) in $page.people.links"
+            :key="'link' + i">
             <div class="text-blue-700">
               <a :href="link.link" target="_blank">{{ link.name }}</a>
             </div>
@@ -83,7 +69,7 @@
     </div>
 
     <!-- Self Description write with Markdown -->
-    <div class="max-w-5xl text-base mx-auto leading-6 mt-4 people px-4">
+    <div class="max-w-5xl text-base mx-auto leading-6 mt-8 people px-4">
       <VueRemarkContent />
     </div>
 
@@ -112,8 +98,8 @@
     </div> -->
 
     <!-- Publications -->
-    <div class="max-w-5xl text-base mx-auto leading-6 mt-8 px-4">
-      <div id="publications" class="text-lg font-bold mb-2">
+    <div class="max-w-5xl text-base mx-auto leading-6 mt-16 px-4">
+      <div id="publications" class="text-xl font-bold mb-2">
         <span>Publications</span>
         <!-- <span class="ml-1">(</span>
         <a
@@ -200,51 +186,39 @@
         <div class="mt-8 mb-5 font-bold text-gray-600">
           {{ cluster.title }}
         </div>
-        <div
-          v-for="(pub, i) in cluster.pubs"
-          :key="'pub' + i"
-          class="md:flex gap-4 mb-8 md:mb-5"
-        >
+        <div v-for="(pub, i) in cluster.pubs" :key="'pub' + i"
+          class="md:flex gap-4 mb-8 md:mb-4">
           <!-- figure -->
           <div class="w-full md:w-64 flex-none">
-            <v-lazy-image
-              v-if="pub.figure"
+            <v-lazy-image v-if="pub.figure"
               :src="pub.figure ? pub.figure : 'null'"
-              class="w-full"
-            />
+              class="md:w-64 md:h-32 md:object-contain" />
           </div>
           <div class="mt-2 md:mt-0 flex flex-col shrink">
             <!-- title -->
             <div class="font-bold">{{ pub.title }}</div>
             <!-- authors -->
-            <div class="flex text-gray-600 flex-wrap">
-              <div
-                v-for="(author, j) in pub.authors"
-                :key="'pub_' + i + '_' + j"
-              >
-                <a
-                  v-if="author.link"
-                  :href="author.link"
-                  target="_blank"
-                  class="hover:underline text-gray-600"
-                  >{{ author.name }}</a
-                >
+            <div class="flex text-gray-600 flex-wrap mt-1">
+              <div v-for="(author, j) in pub.authors"
+                :key="'pub_' + i + '_' + j">
+                <a v-if="author.link" :href="author.link" target="_blank"
+                  class="hover:underline text-gray-600">{{
+          author.name }}</a>
                 <span v-else>{{ author.name }}</span>
                 <span class="pr-2" v-if="j != pub.authors.length - 1">,</span>
               </div>
             </div>
             <!-- links -->
-            <div class="">
+            <div class="mt-1">
               <span class="font-bold text-blue-700">
-                <a v-if="pub.venue.link" :href="pub.venue.link" target="_blank"
-                  >{{ pub.venue.name }} {{ pub.venue.year }}</a
-                >
+                <a v-if="pub.venue.link" :href="pub.venue.link"
+                  target="_blank">{{ pub.venue.name }} {{
+          pub.venue.year
+        }}</a>
                 <span v-else>{{ pub.venue.name }} {{ pub.venue.year }}</span>
               </span>
-              <span
-                v-for="(link, j) in pub.links"
-                :key="'publink_' + i + '_' + j"
-              >
+              <span v-for="(link, j) in pub.links"
+                :key="'publink_' + i + '_' + j">
                 <span v-if="j != pub.links.length" class="mx-1">/</span>
                 <span class="text-blue-700">
                   <a :href="link.link" target="_blank">{{ link.name }}</a>
@@ -253,16 +227,14 @@
             </div>
 
             <!-- highlights -->
-            <div class="flex flex-col text-red-700 font-bold">
-              <div
-                v-for="(hl, j) in pub.highlights"
-                :key="'pubhl_' + i + '_' + j"
-                class="flex"
-              >
+            <div class="flex flex-col text-red-700 font-bold mt-1">
+              <div v-for="(hl, j) in pub.highlights"
+                :key="'pubhl_' + i + '_' + j" class="flex">
                 <div v-if="hl.name">
-                  <a v-if="hl.link" href="hl.link" target="_blank">{{
-                    hl.name
-                  }}</a>
+                  <a v-if="hl.link" href="hl.link" target="_blank"
+                    class="text-red-700">{{
+          hl.name
+        }}</a>
                   <span v-else>{{ hl.name }}</span>
                 </div>
               </div>
@@ -273,53 +245,34 @@
     </div>
 
     <!-- Projects -->
-    <div class="max-w-5xl text-base mx-auto leading-6 mt-8 px-4">
-      <div id="projects" class="text-lg font-bold mb-5">Projects</div>
-      <div
-        v-for="(project, i) in $page.people.projects"
-        :key="'project' + i"
-        class="md:flex gap-4 mb-8 md:mb-5"
-      >
+    <div class="max-w-5xl text-base mx-auto leading-6 mt-16 px-4">
+      <div id="projects" class="text-xl font-bold mb-5">Projects</div>
+      <div v-for="(project, i) in $page.people.projects" :key="'project' + i"
+        class="md:flex gap-8 mb-8 md:mb-4">
         <!-- figure -->
         <div class="w-full md:w-64 flex-none">
-          <v-lazy-image
-            v-if="project.figure"
+          <v-lazy-image v-if="project.figure"
             :src="project.figure ? project.figure : 'null'"
-            class="w-full"
-          />
+            class="md:w-64 md:h-32 md:object-contain" />
         </div>
         <div class="mt-2 md:mt-0 flex flex-col shrink">
           <!-- title -->
           <div class="font-bold">{{ project.title }}</div>
-          <!-- brief -->
-          <div class="italic">{{ project.brief }}</div>
           <!-- authors -->
-          <div
-            class="flex text-gray-600 flex-wrap"
-            v-if="project.authors && project.authors.length > 1"
-          >
-            <div
-              v-for="(author, j) in project.authors"
-              :key="'pub_' + i + '_' + j"
-            >
-              <a
-                v-if="author.link"
-                :href="author.link"
-                target="_blank"
-                class="hover:underline text-gray-600"
-                >{{ author.name }}</a
-              >
+          <div class="flex text-gray-600 flex-wrap mt-1">
+            <div v-for="(author, j) in project.authors"
+              :key="'pub_' + i + '_' + j">
+              <a v-if="author.link" :href="author.link" target="_blank"
+                class="hover:underline text-gray-600">{{
+          author.name }}</a>
               <span v-else>{{ author.name }}</span>
               <span class="pr-2" v-if="j != project.authors.length - 1">,</span>
             </div>
           </div>
           <!-- links -->
-          <div class="flex">
-            <div
-              v-for="(link, j) in project.links"
-              :key="'projectlink_' + i + '_' + j"
-              class="flex"
-            >
+          <div class="flex mt-1">
+            <div v-for="(link, j) in project.links"
+              :key="'projectlink_' + i + '_' + j" class="flex">
               <div class="text-blue-700">
                 <a :href="link.link" target="_blank">{{ link.name }}</a>
               </div>
@@ -328,22 +281,21 @@
           </div>
 
           <!-- highlights -->
-          <div class="flex flex-col text-red-700 font-bold">
-            <div
-              v-for="(hl, j) in project.highlights"
-              :key="'projecthl_' + i + '_' + j"
-              class="flex"
-            >
+          <div class="flex flex-col text-red-700 font-bold mt-1">
+            <div v-for="(hl, j) in project.highlights"
+              :key="'projecthl_' + i + '_' + j" class="flex">
               <div v-if="hl.name">
-                <a v-if="hl.link" :href="hl.link" target="_blank">{{
-                  hl.name
-                }}</a>
+                <a v-if="hl.link" href="hl.link" target="_blank"
+                  class="text-red-700">{{
+          hl.name
+        }}</a>
                 <span v-else>{{ hl.name }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <!-- Next -->
@@ -559,11 +511,11 @@ export default {
     }
   }
   </page-query>
-  
+
 <style>
 #banner {
   backdrop-filter: blur(10px);
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .people a {
