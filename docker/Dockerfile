@@ -10,8 +10,9 @@ FROM deepbase/dockerlab:workspace_node_18
 
 
 # Use taobao mirror and update npm and yarn
+# Use npm@10 for Node 18 compatibility (npm 11+ requires Node 20+)
 RUN npm config set registry https://registry.npmmirror.com \
-    && npm install -g npm@latest yarn@latest
+    && npm install -g npm@10 yarn@latest
 
 
 # https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported

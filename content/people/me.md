@@ -23,6 +23,113 @@ links:
       link: /pdf/hongxin_cv.pdf
 
 publications:
+
+- title: "Deep contrastive learning enables genome-wide virtual screening"
+  topic:
+    - AI4Science
+  figure: /image/drugclip_sci.png
+  selected: true
+  authors:
+    - name: Yinjun Jia†
+      link: "https://ebgu.github.io/Homepage_Yinjun-Harold-JIA/"
+    - name: Bowen Gao†
+      link: https://bowen-gao.github.io/
+    - name: Jiaxin Tan†
+      link: ""
+    - name: Jiqing Zheng†
+      link: ""
+    - name: Xin Hong†
+      link: https://hongxin2019.github.io/
+    - name: Wenyu Zhu
+      link: ""
+    - name: Haichuan Tan
+      link: ""
+    - name: Yuan Xiao
+      link: ""
+    - name: Liping Tan
+      link: ""
+    - name: Hongyi Cai
+      link: ""
+    - name: Yanwen Huang
+      link: ""
+    - name: Zhiheng Deng
+      link: ""
+    - name: Xiangwei Wu
+      link: ""
+    - name: Yue Jin
+      link: ""
+    - name: Yafei Yuan
+      link: ""
+    - name: Jiekang Tian
+      link: ""
+    - name: Wei He
+      link: ""
+    - name: Weiying Ma
+      link: https://scholar.google.com/citations?user=SToCbu8AAAAJ&hl=en
+    - name: Yaqin Zhang
+      link: https://scholar.google.com/citations?user=mDOMfxIAAAAJ&hl=en
+    - name: Lei Liu*
+      link: ""
+    - name: Chuangye Yan*
+      link: ""
+    - name: Wei Zhang*
+      link: ""
+    - name: Yanyan Lan*
+      link: https://atomlab.yanyanlan.com/
+  venue:
+    name: Science
+    year: 2026
+    link: https://www.science.org/doi/10.1126/science.ads9530
+  links:
+    - name: Paper
+      link: https://www.science.org/doi/10.1126/science.ads9530
+    - name: Preprint
+      link: https://www.biorxiv.org/content/10.1101/2024.09.02.610777
+    - name: Project Page
+      link: https://drugclip.com
+    - name: GenomeScreenDB
+      link: https://drug-the-whole-genome.yanyanlan.com/
+    - name: Code
+      link: "https://github.com/THU-ATOM/DrugCLIP_screen_pipeline"
+  highlights:
+    - name: Science
+      link: ""
+
+- title: "Learning Protein-Ligand Binding in Hyperbolic Space"
+  topic:
+    - AI4Science
+  figure: /image/hypseek_atom_lab.png
+  selected: true
+  authors:
+    - name: Jianhui Wang*
+      link: ""
+    - name: Wenyu Zhu*
+      link: ""
+    - name: Bowen Gao*
+      link: https://bowen-gao.github.io/
+    - name: Xin Hong
+      link: https://hongxin2019.github.io/
+    - name: Ya-Qin Zhang
+      link: https://scholar.google.com/citations?user=mDOMfxIAAAAJ&hl=en
+    - name: Wei-Ying Ma
+      link: https://scholar.google.com/citations?user=SToCbu8AAAAJ&hl=en
+    - name: Yanyan Lan
+      link: https://atomlab.yanyanlan.com/
+  venue:
+    name: AAAI
+    year: 2026
+    link: 
+  links:
+    - name: Paper
+      link: https://arxiv.org/pdf/2508.15480
+    - name: Project Page
+      link: ""
+    - name: Code
+      link: ""
+  highlights:
+    - name: ""
+      link: ""
+
 - title: Pre-training with Fractional Denoising to Enhance Molecular Property Prediction
   topic:
   - AI4Science
