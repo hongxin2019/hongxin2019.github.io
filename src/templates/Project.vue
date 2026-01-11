@@ -43,7 +43,7 @@
 
     <!-- links -->
     <div class="flex mt-5 justify-center gap-2">
-      <div v-for="(link, i) in $page.project.links" :key="'link_' + i">
+      <div v-for="(link, i) in $page.project.links.filter(l => l.link && l.link.trim() && l.name && l.name.trim())" :key="'link_' + i">
         <a
           :href="link.link"
           target="_blank"

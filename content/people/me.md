@@ -6,7 +6,6 @@ excerpt: >
 photo: /image/hongxin.jpg
 topics:
   - AI4Science
-  - Multimodal Learning
 affiliation:
     - Postdoc
     - Institute for AI Industry Research (AIR)
@@ -31,7 +30,7 @@ publications:
   selected: true
   authors:
     - name: Yinjun Jia†
-      link: "https://ebgu.github.io/Homepage_Yinjun-Harold-JIA/"
+      link: "https://ebgu.github.io//"
     - name: Bowen Gao†
       link: https://bowen-gao.github.io/
     - name: Jiaxin Tan†
@@ -130,6 +129,46 @@ publications:
     - name: ""
       link: ""
 
+
+- title: "How Good is AlphaFold3 at Ranking Drug Binding Affinities?"
+  topic:
+    - AI4Science
+  figure: /image/alpharank.png
+  selected: true
+  authors:
+    - name: Xin Hong*
+      link: https://hongxin2019.github.io/
+    - name: Bowen Gao*
+      link: https://bowen-gao.github.io/
+    - name: Yinjun Jia*
+      link: https://www.semanticscholar.org/author/Yinjun-Jia/145105686
+    - name: Wenyu Zhu
+      link: ""
+    - name: Qixuan Chen
+      link: ""
+    - name: Xiaohe Tian
+      link: ""
+    - name: Zhengyi Zhong
+      link: ""
+    - name: Jianhui Wang
+      link: ""
+    - name: Yanyan Lan
+      link: https://atomlab.yanyanlan.com/
+  venue:
+    name: ICML GenBio workshop
+    year: 2025
+    link: https://genbio-workshop.github.io/2025/
+  links:
+    - name: Paper
+      link: https://www.biorxiv.org/content/10.1101/2025.05.27.656341v1.full.pdf
+    - name: Project Page
+      link: ""
+    - name: Code
+      link: ""
+  highlights:
+    - name: ""
+      link: ""
+
 - title: Pre-training with Fractional Denoising to Enhance Molecular Property Prediction
   topic:
   - AI4Science
@@ -194,6 +233,9 @@ publications:
     name: PhD Thesis
     year: 2023
     link:
+  authors:
+  - name: Xin Hong
+    link: https://hongxin2019.github.io/
   links:
   - name: Thesis (in Chinese)
     link: https://drive.google.com/file/d/1MoFfITNof1XQ7cfhzrhbg1jRdXgKM_ee/view?usp=sharing
@@ -401,41 +443,58 @@ projects:
 - title: Drug The Whole Genome
   figure: "/image/screening.png"
   authors:
-    - name: Yinjun Jia*
-      link: https://www.semanticscholar.org/author/Yinjun-Jia/145105686
-    - name: Bowen Gao*
+    - name: Yinjun Jia†
+      link: "https://ebgu.github.io//"
+    - name: Bowen Gao†
       link: https://bowen-gao.github.io/
-    - name: Jiaxin Tan*
-      link: 
-    - name: Xin Hong*
+    - name: Jiaxin Tan†
+      link: ""
+    - name: Jiqing Zheng†
+      link: ""
+    - name: Xin Hong†
       link: https://hongxin2019.github.io/
     - name: Wenyu Zhu
-      link:
+      link: ""
     - name: Haichuan Tan
-      link: https://github.com/thchuan2001
+      link: ""
     - name: Yuan Xiao
-      link:
+      link: ""
+    - name: Liping Tan
+      link: ""
+    - name: Hongyi Cai
+      link: ""
     - name: Yanwen Huang
-      link:
+      link: ""
+    - name: Zhiheng Deng
+      link: ""
+    - name: Xiangwei Wu
+      link: ""
     - name: Yue Jin
-      link:
+      link: ""
     - name: Yafei Yuan
-      link:
+      link: ""
     - name: Jiekang Tian
-      link:
+      link: ""
+    - name: Wei He
+      link: ""
     - name: Weiying Ma
-      link:
+      link: https://scholar.google.com/citations?user=SToCbu8AAAAJ&hl=en
     - name: Yaqin Zhang
-      link:
-    - name: Chuangye Ye
-      link:
-    - name: Wei Zhang
-      link:
-    - name: Yanyan Lan
-      link: "https://yanyanlan.com"
+      link: https://scholar.google.com/citations?user=mDOMfxIAAAAJ&hl=en
+    - name: Lei Liu*
+      link: ""
+    - name: Chuangye Yan*
+      link: ""
+    - name: Wei Zhang*
+      link: ""
+    - name: Yanyan Lan*
+      link: https://atomlab.yanyanlan.com/
   links:
     - name: Project Page
       link: https://drug-the-whole-genome.yanyanlan.com/
+    - name: Online Service
+      link: https://drugclip.com
+
 - title: AIRFold
   figure: "/image/7TVI.png"
   authors:
@@ -524,7 +583,7 @@ projects:
 
 I am currently a Postdoc of Computer Science and Technology at [Institute for AI Industry Research (AIR)](https://air.tsinghua.edu.cn/info/1007/2127.htm), Tsinghua University, working in [THU-ATOM Lab](https://atomlab.yanyanlan.com/) with [Yanyan Lan](https://yanyanlan.com) and [Weiying Ma](https://air.tsinghua.edu.cn/en/info/1046/1189.htm). Before joining AIR, I finished my PhD at [Institute of Computing Technology (ICT)](http://www.ict.ac.cn/), Chinese Academy of Sciences, advised by [Yanyan Lan](https://yanyanlan.com) and [Shuo Bai](http://www.ict.cas.cn/sourcedb_2018_ict_cas/cn/jssrck/200909/t20090917_2496582.html). I also had internships at Beijing Academy of Artificial Intelligence (BAAI), working with Team WuDao-WenLan, and at Megvii Research, working with [Pengfei Xiong](https://scholar.google.com/citations?user=ctLbu3IAAAAJ&view_op=list_works&sortby=pubdate) and [Haoqiang Fan](https://scholar.google.com/citations?hl=en&user=bzzBut4AAAAJ&view_op=list_works&sortby=pubdate).
 
-My current primary research interest lies in exploring problems in the field of life sciences using deep learning tools, particularly in topics such as [protein structure prediction](https://yanyanlan.com/project/airfold/), interactions, protein design, etc. Additionally, I am continuously keeping track of research related to multimodal learning and [visual reasoning](https://github.com/hughplay/Visual-Reasoning-Papers).
+My current primary research interest lies in exploring problems in the field of **AI4Science**, particularly in topics such as [protein structure prediction](https://atomlab.yanyanlan.com/project/airfold/), virtual screening, affinity ranking, drug design, etc.
 
 <!-- <p class="text-red-700 font-bold">
 Our team is looking for interns, please feel free to contact me if you are interested.

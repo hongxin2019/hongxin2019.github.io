@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <!-- Header -->
-    <div id="banner" class="h-12 py-8 w-full text-xl fixed top-0">
+    <div id="banner" class="h-12 py-8 w-full text-xl fixed top-0 select-none">
       <div
         class="md:max-w-5xl px-4 flex justify-between mx-auto items-center h-full">
         <div class="font-bold cursor-pointer" @click="scroll_to('info')">{{ $page.people.name }}</div>
@@ -73,121 +73,17 @@
       <VueRemarkContent />
     </div>
 
-    <!-- Group -->
-    <!-- <div class="max-w-5xl text-base mx-auto leading-6 mt-8 px-4">
-      <div id="group" class="text-lg font-bold">Group</div>
-      <div
-        v-for="(group, i) in $page.people.group"
-        :key="'group' + i"
-        class="ml-4"
-      >
-        <div class="text-base my-2">{{ group.name }}</div>
-        <ul class="list-disc list-inside grid md:grid-cols-2">
-          <li v-for="(member, i) in group.members" :key="'member' + i">
-            <a
-              v-if="member.link"
-              :href="member.link"
-              target="_blank"
-              class="text-blue-700"
-              >{{ member.name }}</a
-            >
-            <span v-else>{{ member.name }}</span>
-          </li>
-        </ul>
-      </div>
-    </div> -->
-
     <!-- Publications -->
     <div class="max-w-5xl text-base mx-auto leading-6 mt-16 px-4">
       <div id="publications" class="text-xl font-bold mb-2">
         <span>Publications</span>
-        <!-- <span class="ml-1">(</span>
-        <a
-          class="mx-1"
-          :class="{
-            'text-black': pubs_type == 'selected',
-            'text-blue-700': pubs_type != 'selected',
-          }"
-          href="#publications"
-          @click="
-            set_pubs_list('selected');
-            scroll_to('publications');
-          "
-          >show selecetd</a
-        >
-        <span class="mx-1">/</span>
-        <a
-          class="mx-1"
-          :class="{
-            'text-black': pubs_type == 'year' && selected == '',
-            'text-blue-700': pubs_type != 'year' || selected != '',
-          }"
-          href="#publications"
-          @click="
-            set_pubs_list('year');
-            scroll_to('publications');
-          "
-          >show all by date</a
-        >
-        <span class="mx-1">/</span>
-        <a
-          class="mx-1"
-          :class="{
-            'text-black': pubs_type == 'topic' && selected == '',
-            'text-blue-700': pubs_type != 'topic' || selected != '',
-          }"
-          href="#publications"
-          @click="
-            set_pubs_list('topic');
-            scroll_to('publications');
-          "
-          >show all by topic</a
-        >
-        <span class="mr-1">)</span> -->
       </div>
-
-      <!-- Years -->
-      <!-- <div class="flex flex-wrap">
-        <div class="font-bold mr-2">Year:</div>
-        <div v-for="(year, i) in years" :key="'year_' + year">
-          <span v-if="i > 0" class="mx-1">/</span>
-          <a
-            :class="{
-              'text-black': pubs_type == 'year' && selected == year,
-              'text-blue-700': pubs_type != 'year' || selected != year,
-            }"
-            @click="set_pubs_list('year', year)"
-            href="#publications"
-          >
-            {{ year }}
-          </a>
-        </div>
-      </div> -->
-
-      <!-- Topics -->
-      <!-- <div class="flex flex-wrap mb-8">
-        <div class="font-bold mr-2">Research Topics:</div>
-        <div v-for="(topic, i) in topics" :key="'topic_' + topic">
-          <span v-if="i > 0" class="mx-1">/</span>
-          <a
-            :class="{
-              'text-black': pubs_type == 'topic' && selected == topic,
-              'text-blue-700': pubs_type != 'topic' || selected != topic,
-            }"
-            @click="set_pubs_list('topic', topic)"
-            href="#publications"
-          >
-            {{ topic }}
-          </a>
-        </div>
-      </div> -->
-
       <div v-for="(cluster, i) in pubs_list" :key="'cluster_' + i">
         <div class="mt-8 mb-5 font-bold text-gray-600">
           {{ cluster.title }}
         </div>
         <div v-for="(pub, i) in cluster.pubs" :key="'pub' + i"
-          class="md:flex gap-4 mb-8 md:mb-4">
+          class="md:flex gap-4 mb-8 md:mb-6">
           <!-- figure -->
           <div class="w-full md:w-64 flex-none">
             <v-lazy-image v-if="pub.figure"
@@ -202,9 +98,11 @@
               <div v-for="(author, j) in pub.authors"
                 :key="'pub_' + i + '_' + j">
                 <a v-if="author.link" :href="author.link" target="_blank"
-                  class="hover:underline text-gray-600">{{
-          author.name }}</a>
-                <span v-else>{{ author.name }}</span>
+                  class="hover:underline"
+                  :class="isCurrentAuthor(author.name) ? 'font-bold text-blue-700' : 'text-gray-600'"
+                  v-html="formatAuthorName(author.name)"></a>
+                <span v-else :class="isCurrentAuthor(author.name) ? 'font-bold text-blue-700' : ''"
+                  v-html="formatAuthorName(author.name)"></span>
                 <span class="pr-2" v-if="j != pub.authors.length - 1">,</span>
               </div>
             </div>
@@ -217,9 +115,9 @@
         }}</a>
                 <span v-else>{{ pub.venue.name }} {{ pub.venue.year }}</span>
               </span>
-              <span v-for="(link, j) in pub.links"
+              <span v-for="(link, j) in pub.links.filter(l => l.link && l.link.trim() && l.name && l.name.trim())"
                 :key="'publink_' + i + '_' + j">
-                <span v-if="j != pub.links.length" class="mx-1">/</span>
+                <span v-if="j != pub.links.filter(l => l.link && l.link.trim() && l.name && l.name.trim()).length" class="mx-1">/</span>
                 <span class="text-blue-700">
                   <a :href="link.link" target="_blank">{{ link.name }}</a>
                 </span>
@@ -248,7 +146,7 @@
     <div class="max-w-5xl text-base mx-auto leading-6 mt-16 px-4">
       <div id="projects" class="text-xl font-bold mb-5">Projects</div>
       <div v-for="(project, i) in $page.people.projects" :key="'project' + i"
-        class="md:flex gap-8 mb-8 md:mb-4">
+        class="md:flex gap-8 mb-8 md:mb-6">
         <!-- figure -->
         <div class="w-full md:w-64 flex-none">
           <v-lazy-image v-if="project.figure"
@@ -263,20 +161,22 @@
             <div v-for="(author, j) in project.authors"
               :key="'pub_' + i + '_' + j">
               <a v-if="author.link" :href="author.link" target="_blank"
-                class="hover:underline text-gray-600">{{
-          author.name }}</a>
-              <span v-else>{{ author.name }}</span>
+                class="hover:underline"
+                :class="isCurrentAuthor(author.name) ? 'font-bold text-blue-700' : 'text-gray-600'"
+                v-html="formatAuthorName(author.name)"></a>
+              <span v-else :class="isCurrentAuthor(author.name) ? 'font-bold text-blue-700' : ''"
+                v-html="formatAuthorName(author.name)"></span>
               <span class="pr-2" v-if="j != project.authors.length - 1">,</span>
             </div>
           </div>
           <!-- links -->
           <div class="flex mt-1">
-            <div v-for="(link, j) in project.links"
+            <div v-for="(link, j) in project.links.filter(l => l.link && l.link.trim() && l.name && l.name.trim())"
               :key="'projectlink_' + i + '_' + j" class="flex">
               <div class="text-blue-700">
                 <a :href="link.link" target="_blank">{{ link.name }}</a>
               </div>
-              <div v-if="j != project.links.length - 1" class="mx-1">/</div>
+              <div v-if="j != project.links.filter(l => l.link && l.link.trim() && l.name && l.name.trim()).length - 1" class="mx-1">/</div>
             </div>
           </div>
 
@@ -343,6 +243,20 @@ export default {
   },
 
   methods: {
+    formatAuthorName(authorName) {
+      if (!authorName) return '';
+      // Replace special characters with superscript version
+      return authorName.replace(/([*†‡§¶#@^~]+)/g, '<sup>$1</sup>');
+    },
+
+    isCurrentAuthor(authorName) {
+      if (!authorName || !this.$page.people.name) return false;
+      // Remove special characters like *, †, ‡, etc. and trim
+      const cleanAuthorName = authorName.replace(/[*†‡§¶#@^~]|\s+$/g, '').trim();
+      const currentName = this.$page.people.name.trim();
+      return cleanAuthorName === currentName;
+    },
+
     scroll_to(id) {
       const anchor = document.getElementById(id);
       if (anchor) {
